@@ -723,32 +723,31 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 
 .menu-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(260px, 300px));
-  gap:20px;
+  grid-template-columns:1fr;
+  gap:16px;
 }
 @media(min-width:768px){
-  .menu-grid{gap:24px}
+  .menu-grid{grid-template-columns:1fr 1fr; gap:20px}
 }
 
 .dish{
+  display:flex; align-items:flex-start; gap:18px;
+  min-width:0;
   background:var(--cream-soft);
   border-radius:16px;
-  padding:22px;
+  padding:18px 20px;
   border:1px solid var(--line);
   transition:transform .3s, box-shadow .3s, border-color .3s;
-  display:flex; flex-direction:column;
 }
-@media(min-width:768px){ .dish{padding:26px} }
 .dish:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 40px -20px rgba(31,26,20,.2);
+  transform:translateY(-3px);
+  box-shadow:0 16px 32px -20px rgba(31,26,20,.2);
   border-color:var(--terracotta);
 }
 
 .dish-img{
-  width:100%; aspect-ratio:1;
-  border-radius:50%;
-  margin-bottom:18px;
+  width:92px; height:92px; flex-shrink:0;
+  border-radius:14px;
   position:relative;
   overflow:hidden;
   background:linear-gradient(135deg, #C99A3F 0%, #8A6420 100%);
@@ -758,36 +757,53 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
   object-fit:cover;
 }
 
+.dish-body{ flex:1; min-width:0 }
+
+.dish-row{
+  display:flex; align-items:baseline; gap:8px;
+  margin-bottom:7px;
+}
+.dish-row h3{
+  font-size:clamp(17px, 1.6vw, 20px);
+  line-height:1.2;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  flex-shrink:1; min-width:0;
+}
+
 .dish-tag{
-  position:absolute; top:14px; left:50%; transform:translateX(-50%); z-index:2;
   background:var(--ink); color:var(--cream);
   font-size:10px; letter-spacing:0.12em;
   text-transform:uppercase; font-weight:600;
-  padding:5px 10px; border-radius:999px;
-  white-space:nowrap;
+  padding:4px 9px; border-radius:999px;
+  white-space:nowrap; flex-shrink:0;
 }
 .dish-tag.vegan{background:#3A4218}
 .dish-tag.spicy{background:var(--terracotta)}
 
-.dish h3{
-  font-size:clamp(20px, 2vw, 24px);
-  margin-bottom:8px; line-height:1.2;
+.dish-dots{
+  flex:1; min-width:14px;
+  border-bottom:2px dotted rgba(31,26,20,.18);
+  margin-bottom:4px;
+}
+.dish .price{
+  font-family:var(--serif); font-size:20px; color:var(--terracotta);
+  white-space:nowrap; flex-shrink:0;
 }
 .dish .desc{
-  font-size:14px; line-height:1.65;
+  font-size:13px; line-height:1.6;
   color:var(--charcoal-soft);
-  flex:1; margin-bottom:18px;
+  margin:0 0 8px;
 }
-.dish .foot{
-  display:flex; justify-content:space-between; align-items:center;
-  padding-top:14px;
-  border-top:1px dashed var(--line);
-}
-.dish .price{font-family:var(--serif); font-size:22px; color:var(--terracotta)}
 .dish .origin{
   font-size:10px; letter-spacing:0.15em;
   text-transform:uppercase; color:var(--charcoal-soft);
   font-weight:600;
+}
+@media(max-width:767px){
+  .dish-row{ flex-wrap:wrap; gap:6px 8px }
+  .dish-row h3{ white-space:normal; overflow:visible; text-overflow:clip; flex:0 1 auto }
+  .dish-dots{ display:none }
+  .dish .price{ margin-left:auto }
 }
 
 /* empty state when filter matches nothing */
@@ -1281,62 +1297,98 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
     <div class="menu-grid" id="menuGrid">
       <article class="dish reveal" data-category="carne">
         <div class="dish-img">
-          <span class="dish-tag spicy">Piccante</span>
           <img src="images/zigni-overhead.jpg" alt="Zighinì di carne" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
         </div>
-        <h3>Zighinì di carne</h3>
-        <p class="desc">Spezzatino di manzo, pollo o agnello cotto a lungo nel berberè della casa, servito sull'injera con contorni di legumi e verdure speziate.</p>
-        <div class="foot"><span class="price">€17</span><span class="origin">Eritrea</span></div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Zighinì di carne</h3>
+            <span class="dish-tag spicy">Piccante</span>
+            <span class="dish-dots"></span>
+            <span class="price">€17</span>
+          </div>
+          <p class="desc">Spezzatino di manzo, pollo o agnello cotto a lungo nel berberè della casa, servito sull'injera con contorni di legumi e verdure speziate.</p>
+          <span class="origin">Eritrea</span>
+        </div>
       </article>
 
       <article class="dish reveal" data-category="carne">
         <div class="dish-img">
-          <span class="dish-tag">Specialità</span>
           <img src="images/zigni-overhead.jpg" alt="Kitfo" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
         </div>
-        <h3>Kitfo</h3>
-        <p class="desc">Carne trita di manzo condita con burro speziato (niter kibbeh) e mitmita. Disponibile cruda, semicruda o cotta secondo tradizione.</p>
-        <div class="foot"><span class="price">€18</span><span class="origin">Etiopia</span></div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Kitfo</h3>
+            <span class="dish-tag">Specialità</span>
+            <span class="dish-dots"></span>
+            <span class="price">€18</span>
+          </div>
+          <p class="desc">Carne trita di manzo condita con burro speziato (niter kibbeh) e mitmita. Disponibile cruda, semicruda o cotta secondo tradizione.</p>
+          <span class="origin">Etiopia</span>
+        </div>
       </article>
 
       <article class="dish reveal" data-category="vegano vegetariano">
         <div class="dish-img">
-          <span class="dish-tag vegan">Vegano</span>
           <img src="images/shiro.jpg" alt="Shiro" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
         </div>
-        <h3>Shiro</h3>
-        <p class="desc">Crema vellutata di ceci macinati e pomodoro fresco, profumata con cipolla, aglio e spezie. Un classico della cucina di casa.</p>
-        <div class="foot"><span class="price">€12</span><span class="origin">Eritrea</span></div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Shiro</h3>
+            <span class="dish-tag vegan">Vegano</span>
+            <span class="dish-dots"></span>
+            <span class="price">€12</span>
+          </div>
+          <p class="desc">Crema vellutata di ceci macinati e pomodoro fresco, profumata con cipolla, aglio e spezie. Un classico della cucina di casa.</p>
+          <span class="origin">Eritrea</span>
+        </div>
       </article>
 
       <article class="dish reveal" data-category="carne">
         <div class="dish-img">
-          <span class="dish-tag spicy">Piccante</span>
           <img src="images/zigni-overhead.jpg" alt="Tibs" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
         </div>
-        <h3>Tibs</h3>
-        <p class="desc">Bocconcini di manzo saltati al momento con cipolla, rosmarino, peperoncino e burro speziato. Tre livelli di piccantezza a scelta.</p>
-        <div class="foot"><span class="price">€17</span><span class="origin">Etiopia</span></div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Tibs</h3>
+            <span class="dish-tag spicy">Piccante</span>
+            <span class="dish-dots"></span>
+            <span class="price">€17</span>
+          </div>
+          <p class="desc">Bocconcini di manzo saltati al momento con cipolla, rosmarino, peperoncino e burro speziato. Tre livelli di piccantezza a scelta.</p>
+          <span class="origin">Etiopia</span>
+        </div>
       </article>
 
       <article class="dish reveal" data-category="vegano vegetariano">
         <div class="dish-img">
-          <span class="dish-tag vegan">Vegano</span>
           <img src="images/vegan.jpg" alt="Zighinì vegetariano" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
         </div>
-        <h3>Zighinì vegetariano</h3>
-        <p class="desc">Cinque tipi di legumi e verdure speziate: shiro, tumtumo (lenticchie), hamli (cime di rapa), sillsi e alicia. Servito sull'injera.</p>
-        <div class="foot"><span class="price">€16</span><span class="origin">Eritrea</span></div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Zighinì vegetariano</h3>
+            <span class="dish-tag vegan">Vegano</span>
+            <span class="dish-dots"></span>
+            <span class="price">€16</span>
+          </div>
+          <p class="desc">Cinque tipi di legumi e verdure speziate: shiro, tumtumo (lenticchie), hamli (cime di rapa), sillsi e alicia. Servito sull'injera.</p>
+          <span class="origin">Eritrea</span>
+        </div>
       </article>
 
       <article class="dish reveal" data-category="antipasti">
         <div class="dish-img">
-          <span class="dish-tag">Fatto in casa</span>
           <img src="images/vegan.jpg" alt="Injera" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
         </div>
-        <h3>Injera</h3>
-        <p class="desc">Pane fermentato di teff, lievitato naturalmente per tre giorni. È piatto, posata e tovaglia. Senza glutine.</p>
-        <div class="foot"><span class="price">€4</span><span class="origin">Casa</span></div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Injera</h3>
+            <span class="dish-tag">Fatto in casa</span>
+            <span class="dish-dots"></span>
+            <span class="price">€4</span>
+          </div>
+          <p class="desc">Pane fermentato di teff, lievitato naturalmente per tre giorni. È piatto, posata e tovaglia. Senza glutine.</p>
+          <span class="origin">Casa</span>
+        </div>
       </article>
     </div>
 

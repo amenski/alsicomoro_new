@@ -1123,6 +1123,102 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 @media (prefers-reduced-motion: reduce){
   .reveal, .reveal-child{opacity:1; transform:none; transition:none}
 }
+
+/* ============================================================
+   17. FULL MENU PAGE — two-column structure
+   ============================================================ */
+.menu-section .menu-notice{
+  background:#FEF7E8;
+  border-left:4px solid var(--ochre);
+  color:var(--charcoal-soft);
+  margin-bottom:20px;
+  padding:16px 20px;
+  border-radius:6px;
+  font-size:13px; line-height:1.7;
+}
+
+/* Ornamental category divider */
+.cat-ornament{
+  display:flex; align-items:center; justify-content:center;
+  gap:10px; margin:8px 0 28px;
+}
+.cat-ornament-line{
+  width:50px; height:1px; flex-shrink:0;
+}
+.cat-ornament-line.left{ background:linear-gradient(to right, transparent, var(--terracotta)) }
+.cat-ornament-line.right{ background:linear-gradient(to left, transparent, var(--terracotta)) }
+.cat-ornament-sym{
+  font-family:var(--serif);
+  letter-spacing:0.2em; color:var(--terracotta);
+  font-size:12px; opacity:.8;
+}
+
+/* Two-column dish grid */
+.mdgrid{
+  display:grid;
+  grid-template-columns:1fr;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+}
+@media(min-width:680px){
+  .mdgrid{ grid-template-columns:1fr 1fr }
+  .mdgrid .mdish:nth-child(odd){ border-right:1px solid var(--line) }
+  .mdgrid .mdish:nth-last-child(-n+2){ border-bottom:0 }
+  .mdgrid .mdish:last-child:nth-child(odd){ grid-column:1/-1 }
+}
+@media(max-width:679px){
+  .mdgrid .mdish:last-child{ border-bottom:0 }
+}
+
+.mdish{
+  display:flex; align-items:flex-start;
+  gap:14px; padding:18px 24px;
+  border-bottom:1px solid var(--line);
+  transition:background .2s;
+}
+.mdish:hover{ background:var(--cream-soft) }
+
+.mdish-marker{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--terracotta); opacity:.7;
+  margin-top:9px; flex-shrink:0;
+}
+
+.mdish-body{ flex:1; min-width:0 }
+
+.mdish-row{
+  display:flex; align-items:baseline;
+  gap:6px; margin-bottom:5px;
+}
+.mdish-name{
+  font-family:var(--serif);
+  font-size:clamp(16px,1.5vw,18px);
+  color:var(--ink); line-height:1.2;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  flex-shrink:1; min-width:0;
+}
+.mdish-dots{
+  flex:1; min-width:12px;
+  border-bottom:2px dotted rgba(31,26,20,.18);
+  margin-bottom:3px; flex-shrink:1;
+}
+.mdish-price{
+  font-family:var(--serif);
+  font-size:clamp(16px,1.5vw,18px);
+  color:var(--terracotta); white-space:nowrap; flex-shrink:0;
+}
+.mdish-note{
+  display:block; font-size:10px; font-style:italic;
+  color:var(--charcoal-soft);
+  margin-top:1px; margin-bottom:4px;
+}
+.mdish-desc{
+  font-size:13px; line-height:1.6;
+  color:var(--charcoal-soft);
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1192,231 +1288,321 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 <!-- ===================== FULL MENU ===================== -->
 <section class="menu-section" id="menu-full">
   <div class="inner" style="padding-top:60px">
-
     <div style="max-width:1000px; margin:0 auto">
 
       <!-- CATEGORIA: Colazione -->
       <div class="menu-category reveal" id="cat-colazione">
-        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Colazione</div>
-        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">COLAZIONE</h2>
-        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Full</h3><p style="font-size:14px; color:var(--charcoal-soft)">Crema di fave con pomodoro, cipolla e prezzemolo.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">8€</span></div>
+        <div class="eyebrow reveal-child" style="margin-bottom:10px; text-align:center">Colazione</div>
+        <div class="cat-ornament reveal-child">
+          <span class="cat-ornament-line left"></span>
+          <span class="cat-ornament-sym">◆ ◆ ◆</span>
+          <span class="cat-ornament-line right"></span>
+        </div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:32px">COLAZIONE</h2>
+        <div class="mdgrid">
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Full</span><span class="mdish-dots"></span><span class="mdish-price">8€</span></div>
+              <p class="mdish-desc">Crema di fave con pomodoro, cipolla e prezzemolo.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Frittata Al Sicomoro</h3><p style="font-size:14px; color:var(--charcoal-soft)">Frittata con uovo, cipolla e pomodoro — piccante o non piccante.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">10€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Frittata Al Sicomoro</span><span class="mdish-dots"></span><span class="mdish-price">10€</span></div>
+              <p class="mdish-desc">Frittata con uovo, cipolla e pomodoro — piccante o non piccante.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Omelette</h3><p style="font-size:14px; color:var(--charcoal-soft)">Uova soffici con prezzemolo o miele.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">12€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Omelette</span><span class="mdish-dots"></span><span class="mdish-price">12€</span></div>
+              <p class="mdish-desc">Uova soffici con prezzemolo o miele.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Kitcha Fit-Fit</h3><p style="font-size:14px; color:var(--charcoal-soft)">Piadina spezzettata condita a scelta: classica, miele, spriss rosso o bianco, burro — con yogurt.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">13€</span><br><span style="font-size:11px; color:var(--charcoal-soft); font-style:italic">con yogurt</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Kitcha Fit-Fit</span><span class="mdish-dots"></span><span class="mdish-price">13€</span></div>
+              <span class="mdish-note">con yogurt</span>
+              <p class="mdish-desc">Piadina spezzettata condita a scelta: classica, miele, spriss rosso o bianco, burro — con yogurt.</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- CATEGORIA: Antipasti -->
-      <div class="menu-category reveal" style="margin-top:48px" id="cat-antipasti">
-        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Antipasti</div>
-        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">ANTIPASTI TRADIZIONALI</h2>
-        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Categna</h3><p style="font-size:14px; color:var(--charcoal-soft)">Injera tostata al momento: con burro chiarificato e berberè, con lenticchie.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">3€</span><br><span style="font-size:11px; color:var(--charcoal-soft); font-style:italic">6 pz</span></div>
+      <div class="menu-category reveal" style="margin-top:56px" id="cat-antipasti">
+        <div class="eyebrow reveal-child" style="margin-bottom:10px; text-align:center">Antipasti</div>
+        <div class="cat-ornament reveal-child">
+          <span class="cat-ornament-line left"></span>
+          <span class="cat-ornament-sym">◆ ◆ ◆</span>
+          <span class="cat-ornament-line right"></span>
+        </div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:32px">ANTIPASTI TRADIZIONALI</h2>
+        <div class="mdgrid">
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Categna</span><span class="mdish-dots"></span><span class="mdish-price">3€</span></div>
+              <span class="mdish-note">6 pz</span>
+              <p class="mdish-desc">Injera tostata al momento: con burro chiarificato e berberè, con lenticchie.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Sambusa di Carne (2 varianti)</h3><p style="font-size:14px; color:var(--charcoal-soft)">Fagottini ripieni con carne macinata di manzo o pollo.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">2€</span><br><span style="font-size:11px; color:var(--charcoal-soft); font-style:italic">1 pz</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Sambusa di Carne</span><span class="mdish-dots"></span><span class="mdish-price">2€</span></div>
+              <span class="mdish-note">1 pz · 2 varianti</span>
+              <p class="mdish-desc">Fagottini ripieni con carne macinata di manzo o pollo.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Sambusa di Verdura</h3><p style="font-size:14px; color:var(--charcoal-soft)">Fagottini vegetariani con lenticchie o coste.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">1,50€</span><br><span style="font-size:11px; color:var(--charcoal-soft); font-style:italic">1 pz</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Sambusa di Verdura</span><span class="mdish-dots"></span><span class="mdish-price">1,50€</span></div>
+              <span class="mdish-note">1 pz</span>
+              <p class="mdish-desc">Fagottini vegetariani con lenticchie o coste.</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- CATEGORIA: Carne -->
-      <div class="menu-category reveal" style="margin-top:48px" id="cat-carne">
-        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Carne</div>
-        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">PIATTI DI CARNE</h2>
-        <div class="menu-notice" style="background:#FEF7E8; border-left:4px solid var(--ochre); padding:20px; margin-bottom:24px; border-radius:6px; font-size:14px; line-height:1.7; color:var(--charcoal-soft)">
-          Ogni piatto è servito con l'injera — il pane del cuore della cucina eritrea ed etiopica. Preparata con farina di teff (un antico cereale africano, naturalmente senza glutine) o con altre farine tradizionali, è soffice, leggermente acidula e piena di vita. Chiedi al personale la versione teff se hai intolleranze.
+      <div class="menu-category reveal" style="margin-top:56px" id="cat-carne">
+        <div class="eyebrow reveal-child" style="margin-bottom:10px; text-align:center">Carne</div>
+        <div class="cat-ornament reveal-child">
+          <span class="cat-ornament-line left"></span>
+          <span class="cat-ornament-sym">◆ ◆ ◆</span>
+          <span class="cat-ornament-line right"></span>
         </div>
-        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Zighini di Carne</h3><p style="font-size:14px; color:var(--charcoal-soft)">Spezzatino di manzo o pollo con purè di ceci, lenticchie e insalata.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">17€</span></div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:32px">PIATTI DI CARNE</h2>
+        <div class="menu-notice reveal-child">Ogni piatto è servito con l'injera — il pane del cuore della cucina eritrea ed etiopica. Preparata con farina di teff (un antico cereale africano, naturalmente senza glutine) o con altre farine tradizionali, è soffice, leggermente acidula e piena di vita. Chiedi al personale la versione teff se hai intolleranze.</div>
+        <div class="mdgrid">
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Zighini di Carne</span><span class="mdish-dots"></span><span class="mdish-price">17€</span></div>
+              <p class="mdish-desc">Spezzatino di manzo o pollo con purè di ceci, lenticchie e insalata.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Spriss Rosso / Bianco</h3><p style="font-size:14px; color:var(--charcoal-soft)">Bocconcini di manzo con pomodoro e spezie. Rosso: con berberè | Bianco: senza piccante.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">16€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Spriss Rosso / Bianco</span><span class="mdish-dots"></span><span class="mdish-price">16€</span></div>
+              <p class="mdish-desc">Bocconcini di manzo con pomodoro e spezie. Rosso: con berberè | Bianco: senza piccante.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Gored Gored</h3><p style="font-size:14px; color:var(--charcoal-soft)">Bocconcini di manzo con burro chiarificato e spezie. Cotto, crudo o semicrudo.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">18€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Gored Gored</span><span class="mdish-dots"></span><span class="mdish-price">18€</span></div>
+              <p class="mdish-desc">Bocconcini di manzo con burro chiarificato e spezie. Cotto, crudo o semicrudo.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Kitfo</h3><p style="font-size:14px; color:var(--charcoal-soft)">Manzo tritato fine con burro chiarificato e mitmita. Cotto, crudo o semicrudo.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">20€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Kitfo</span><span class="mdish-dots"></span><span class="mdish-price">20€</span></div>
+              <p class="mdish-desc">Manzo tritato fine con burro chiarificato e mitmita. Cotto, crudo o semicrudo.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Zhil Zhil</h3><p style="font-size:14px; color:var(--charcoal-soft)">Striscioline di manzo saltate con cipolla, peperoni e spezie.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">20€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Zhil Zhil</span><span class="mdish-dots"></span><span class="mdish-price">20€</span></div>
+              <p class="mdish-desc">Striscioline di manzo saltate con cipolla, peperoni e spezie.</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- CATEGORIA: Vegetariano -->
-      <div class="menu-category reveal" style="margin-top:48px" id="cat-vegetariano">
-        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Vegetariano / Vegano</div>
-        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">VEGETARIANO / VEGANO</h2>
-        <div class="menu-notice" style="background:#FEF7E8; border-left:4px solid var(--ochre); padding:20px; margin-bottom:24px; border-radius:6px; font-size:14px; line-height:1.7; color:var(--charcoal-soft)">
-          Ogni piatto è servito con l'injera fatta in casa. La nostra cucina vegetariana e vegana è ricca di legumi, verdure speziate e sapori autentici — naturalmente senza compromessi.
+      <div class="menu-category reveal" style="margin-top:56px" id="cat-vegetariano">
+        <div class="eyebrow reveal-child" style="margin-bottom:10px; text-align:center">Vegetariano / Vegano</div>
+        <div class="cat-ornament reveal-child">
+          <span class="cat-ornament-line left"></span>
+          <span class="cat-ornament-sym">◆ ◆ ◆</span>
+          <span class="cat-ornament-line right"></span>
         </div>
-        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Zighini Vegetariano</h3><p style="font-size:14px; color:var(--charcoal-soft)">Lenticchie rosse e gialle, insalata, shiro (crema di ceci), hamli (coste), alicia (cavolo, fagioli e patate), rapa con carote.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">16€</span></div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:32px">VEGETARIANO / VEGANO</h2>
+        <div class="menu-notice reveal-child">Ogni piatto è servito con l'injera fatta in casa. La nostra cucina vegetariana e vegana è ricca di legumi, verdure speziate e sapori autentici — naturalmente senza compromessi.</div>
+        <div class="mdgrid">
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Zighini Vegetariano</span><span class="mdish-dots"></span><span class="mdish-price">16€</span></div>
+              <p class="mdish-desc">Lenticchie rosse e gialle, insalata, shiro (crema di ceci), hamli (coste), alicia (cavolo, fagioli e patate), rapa con carote.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Fir Fir con Uova</h3><p style="font-size:14px; color:var(--charcoal-soft)">Injera saltata in padella con pomodoro, cipolla e berberè.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">18€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Fir Fir con Uova</span><span class="mdish-dots"></span><span class="mdish-price">18€</span></div>
+              <p class="mdish-desc">Injera saltata in padella con pomodoro, cipolla e berberè.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Fir Fir Vegetariano</h3><p style="font-size:14px; color:var(--charcoal-soft)">Come il Fir Fir, nella versione senza uova.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">15€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Fir Fir Vegetariano</span><span class="mdish-dots"></span><span class="mdish-price">15€</span></div>
+              <p class="mdish-desc">Come il Fir Fir, nella versione senza uova.</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- CATEGORIA: Dolci -->
-      <div class="menu-category reveal" style="margin-top:48px" id="cat-dolci">
-        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Dolci</div>
-        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">DOLCI FATTI IN CASA</h2>
-        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Dolce del giorno</h3><p style="font-size:14px; color:var(--charcoal-soft)">Preparazione casalinga che cambia ogni giorno.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">6€</span></div>
+      <div class="menu-category reveal" style="margin-top:56px" id="cat-dolci">
+        <div class="eyebrow reveal-child" style="margin-bottom:10px; text-align:center">Dolci</div>
+        <div class="cat-ornament reveal-child">
+          <span class="cat-ornament-line left"></span>
+          <span class="cat-ornament-sym">◆ ◆ ◆</span>
+          <span class="cat-ornament-line right"></span>
+        </div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:32px">DOLCI FATTI IN CASA</h2>
+        <div class="mdgrid">
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Dolce del giorno</span><span class="mdish-dots"></span><span class="mdish-price">6€</span></div>
+              <p class="mdish-desc">Preparazione casalinga che cambia ogni giorno.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:22px; margin-bottom:6px">Macedonia di frutta</h3><p style="font-size:14px; color:var(--charcoal-soft)">Frutta fresca di stagione.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">5€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Macedonia di frutta</span><span class="mdish-dots"></span><span class="mdish-price">5€</span></div>
+              <p class="mdish-desc">Frutta fresca di stagione.</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- CATEGORIA: Bevande -->
-      <div class="menu-category reveal" style="margin-top:48px" id="cat-bevande">
-        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Bevande</div>
-        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">BEVANDE</h2>
-        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
-          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Acqua 0,75cl</h3></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">3,00€</span></div>
+      <div class="menu-category reveal" style="margin-top:56px" id="cat-bevande">
+        <div class="eyebrow reveal-child" style="margin-bottom:10px; text-align:center">Bevande</div>
+        <div class="cat-ornament reveal-child">
+          <span class="cat-ornament-line left"></span>
+          <span class="cat-ornament-sym">◆ ◆ ◆</span>
+          <span class="cat-ornament-line right"></span>
+        </div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:32px">BEVANDE</h2>
+        <div class="mdgrid">
+          <div class="mdish"><span class="mdish-marker"></span><div class="mdish-body"><div class="mdish-row"><span class="mdish-name">Acqua 0,75cl</span><span class="mdish-dots"></span><span class="mdish-price">3,00€</span></div></div></div>
+          <div class="mdish"><span class="mdish-marker"></span><div class="mdish-body"><div class="mdish-row"><span class="mdish-name">Bibite in vetro</span><span class="mdish-dots"></span><span class="mdish-price">3,50€</span></div></div></div>
+          <div class="mdish"><span class="mdish-marker"></span><div class="mdish-body"><div class="mdish-row"><span class="mdish-name">Birra 33cl</span><span class="mdish-dots"></span><span class="mdish-price">4,00€</span></div></div></div>
+          <div class="mdish"><span class="mdish-marker"></span><div class="mdish-body"><div class="mdish-row"><span class="mdish-name">Birra 66cl</span><span class="mdish-dots"></span><span class="mdish-price">7,00€</span></div></div></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Birra Eritrea / Etiope</span><span class="mdish-dots"></span><span class="mdish-price">5,00€</span></div>
+              <p class="mdish-desc">Birra tipica</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Bibite in vetro</h3></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">3,50€</span></div>
-          </div>
-          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Birra 33cl</h3></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">4,00€</span></div>
-          </div>
-          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Birra 66cl</h3></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">7,00€</span></div>
-          </div>
-          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Birra Eritrea / Etiope</h3><p style="font-size:13px; color:var(--charcoal-soft); margin:0">Birra tipica</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">5,00€</span></div>
-          </div>
-          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Birra Analcolica</h3></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">4,00€</span></div>
-          </div>
-          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Amari</h3></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">4,00€</span></div>
-          </div>
-          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Caffè</h3></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">2,00€</span></div>
-          </div>
-          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Tè</h3></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">2,00€</span></div>
-          </div>
-          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Vino — calice</h3></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">4,00€</span></div>
-          </div>
-          <div class="menu-item" style="padding:12px 0; display:flex; justify-content:space-between; align-items:center; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:2px">Vino — mezzo litro</h3></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">9,00€</span></div>
-          </div>
+          <div class="mdish"><span class="mdish-marker"></span><div class="mdish-body"><div class="mdish-row"><span class="mdish-name">Birra Analcolica</span><span class="mdish-dots"></span><span class="mdish-price">4,00€</span></div></div></div>
+          <div class="mdish"><span class="mdish-marker"></span><div class="mdish-body"><div class="mdish-row"><span class="mdish-name">Amari</span><span class="mdish-dots"></span><span class="mdish-price">4,00€</span></div></div></div>
+          <div class="mdish"><span class="mdish-marker"></span><div class="mdish-body"><div class="mdish-row"><span class="mdish-name">Caffè</span><span class="mdish-dots"></span><span class="mdish-price">2,00€</span></div></div></div>
+          <div class="mdish"><span class="mdish-marker"></span><div class="mdish-body"><div class="mdish-row"><span class="mdish-name">Tè</span><span class="mdish-dots"></span><span class="mdish-price">2,00€</span></div></div></div>
+          <div class="mdish"><span class="mdish-marker"></span><div class="mdish-body"><div class="mdish-row"><span class="mdish-name">Vino — calice</span><span class="mdish-dots"></span><span class="mdish-price">4,00€</span></div></div></div>
+          <div class="mdish"><span class="mdish-marker"></span><div class="mdish-body"><div class="mdish-row"><span class="mdish-name">Vino — mezzo litro</span><span class="mdish-dots"></span><span class="mdish-price">9,00€</span></div></div></div>
         </div>
       </div>
 
       <!-- CATEGORIA: Vini -->
-      <div class="menu-category reveal" style="margin-top:48px" id="cat-vini">
-        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Vini</div>
+      <div class="menu-category reveal" style="margin-top:56px" id="cat-vini">
+        <div class="eyebrow reveal-child" style="margin-bottom:10px; text-align:center">Vini</div>
+        <div class="cat-ornament reveal-child">
+          <span class="cat-ornament-line left"></span>
+          <span class="cat-ornament-sym">◆ ◆ ◆</span>
+          <span class="cat-ornament-line right"></span>
+        </div>
         <h2 class="reveal-child" style="text-align:center; margin-bottom:12px">VINI DEL SUDAFRICA · 0,75 lt</h2>
-        <p style="text-align:center; font-style:italic; color:var(--charcoal-soft); margin-bottom:40px">Una selezione di vini dal Sudafrica — un continente, tanti terroir, una storia nel bicchiere.</p>
-        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
-
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">Shiraz 2023 · Cape Dreams</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Robertson. Violette, frutta caramellata, spezie e sentori fumosi. Finale lunghissimo.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">18,00€</span></div>
+        <p class="reveal-child" style="text-align:center; font-style:italic; color:rgba(244,236,216,.5); margin-bottom:32px">Una selezione di vini dal Sudafrica — un continente, tanti terroir, una storia nel bicchiere.</p>
+        <div class="mdgrid">
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Shiraz 2023 · Cape Dreams</span><span class="mdish-dots"></span><span class="mdish-price">18,00€</span></div>
+              <p class="mdish-desc">Robertson. Violette, frutta caramellata, spezie e sentori fumosi. Finale lunghissimo.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">Signature Pinotage 2023 · Spier</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape. Ciliegie mature, prugne succose e cannella. Tannini morbidi e setosi.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">21,00€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Signature Pinotage 2023 · Spier</span><span class="mdish-dots"></span><span class="mdish-price">21,00€</span></div>
+              <p class="mdish-desc">Western Cape. Ciliegie mature, prugne succose e cannella. Tannini morbidi e setosi.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">221 Special Cuvée 2022 · Alvi's Drift</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Worcester. Blend premiato: prugne mature, spezie e liquirizia. Corposo, grande persistenza.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">26,00€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">221 Special Cuvée 2022 · Alvi's Drift</span><span class="mdish-dots"></span><span class="mdish-price">26,00€</span></div>
+              <p class="mdish-desc">Worcester. Blend premiato: prugne mature, spezie e liquirizia. Corposo, grande persistenza.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">Shiraz 2023 · Diemersdal</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Cape Town. 12 mesi in barrique. Pepe, melograno, cioccolato fondente. Finale lungo e speziato.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">35,00€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Shiraz 2023 · Diemersdal</span><span class="mdish-dots"></span><span class="mdish-price">35,00€</span></div>
+              <p class="mdish-desc">Cape Town. 12 mesi in barrique. Pepe, melograno, cioccolato fondente. Finale lungo e speziato.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">Chenin Blanc 2025 · Cape Dreams</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Robertson. Ananas, pesca, pere, agrumi. Fresco, bilanciato, fine.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">18,00€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Chenin Blanc 2025 · Cape Dreams</span><span class="mdish-dots"></span><span class="mdish-price">18,00€</span></div>
+              <p class="mdish-desc">Robertson. Ananas, pesca, pere, agrumi. Fresco, bilanciato, fine.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">Signature Sauvignon Blanc 2025 · Spier</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape. Uva spina, frutto della passione, peperoni verdi e frutta tropicale.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">21,00€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Sauvignon Blanc 2025 · Spier</span><span class="mdish-dots"></span><span class="mdish-price">21,00€</span></div>
+              <p class="mdish-desc">Western Cape. Uva spina, frutto della passione, peperoni verdi e frutta tropicale.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">Chenin Blanc 2024 · Alvi's Drift</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape. Pesche bianche, nettarine, acidità elegante. Corpo pieno e strutturato.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">26,00€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Chenin Blanc 2024 · Alvi's Drift</span><span class="mdish-dots"></span><span class="mdish-price">26,00€</span></div>
+              <p class="mdish-desc">Western Cape. Pesche bianche, nettarine, acidità elegante. Corpo pieno e strutturato.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">Unwooded Chardonnay 2025 · Diemersdal</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Cape Town. Mela, melone, lime. Cremoso e persistente.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">28,00€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Unwooded Chardonnay 2025 · Diemersdal</span><span class="mdish-dots"></span><span class="mdish-price">28,00€</span></div>
+              <p class="mdish-desc">Cape Town. Mela, melone, lime. Cremoso e persistente.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">Brut Cuvée · Finch Mountain</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape Sauvignon Blanc metodo Charmat. Vivace, fresco, erbe secche e agrumi.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">18,00€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Brut Cuvée · Finch Mountain</span><span class="mdish-dots"></span><span class="mdish-price">18,00€</span></div>
+              <p class="mdish-desc">Western Cape Sauvignon Blanc metodo Charmat. Vivace, fresco, erbe secche e agrumi.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">Borealis Cuvée Brut 2024 · Krone</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape Chardonnay + Pinot Noir, 12 mesi sui lieviti. Ananas, lime, crosta di pane.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">33,00€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Borealis Cuvée Brut 2024 · Krone</span><span class="mdish-dots"></span><span class="mdish-price">33,00€</span></div>
+              <p class="mdish-desc">Western Cape Chardonnay + Pinot Noir, 12 mesi sui lieviti. Ananas, lime, crosta di pane.</p>
+            </div>
           </div>
-          <div class="menu-item" style="padding:18px 0;  display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
-            <div><h3 style="font-size:20px; margin-bottom:4px">Rosé Cuvée Brut 2023 · Krone</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape. Pinot Noir + Chardonnay, 12 mesi sui lieviti. Melograno, frutti di bosco, secco ed elegante.</p></div>
-            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">33,00€</span></div>
+          <div class="mdish">
+            <span class="mdish-marker"></span>
+            <div class="mdish-body">
+              <div class="mdish-row"><span class="mdish-name">Rosé Cuvée Brut 2023 · Krone</span><span class="mdish-dots"></span><span class="mdish-price">33,00€</span></div>
+              <p class="mdish-desc">Western Cape. Pinot Noir + Chardonnay, 12 mesi sui lieviti. Melograno, frutti di bosco, secco ed elegante.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div style="text-align:center; margin:48px 0 0">
-        <p style="font-size:14px; color:var(--charcoal-soft); margin-bottom:8px">Scarica il menu completo in PDF</p>
+      <div style="text-align:center; margin:56px 0 0">
+        <p style="font-size:14px; color:rgba(244,236,216,.45); margin-bottom:8px">Scarica il menu completo in PDF</p>
         <a href="Menu_9.pdf" class="btn ghost" target="_blank" rel="noopener">Scarica PDF <span class="arrow" aria-hidden="true">↓</span></a>
       </div>
 
