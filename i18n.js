@@ -250,4 +250,9 @@
 
   init();
   if (getLang() !== 'it') apply(getLang());
+
+  window.__alsicomoroI18nRescan = function() {
+    init();
+    if (getLang() !== 'it') apply(getLang());
+  };
 })();
