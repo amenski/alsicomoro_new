@@ -1105,46 +1105,6 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 }
 
 /* ============================================================
-   15b. MOBILE BOOK-NOW BAR (sticky bottom CTA)
-   ============================================================ */
-.mobile-cta{
-  position:fixed;
-  bottom:0; left:0; right:0;
-  z-index:110;
-  background:var(--ink);
-  padding:12px var(--pad-x);
-  padding-bottom:max(12px, env(safe-area-inset-bottom));
-  display:none;
-  gap:10px;
-  border-top:1px solid rgba(244,236,216,.15);
-  box-shadow:0 -8px 20px -8px rgba(0,0,0,.2);
-}
-.mobile-cta a{
-  flex:1;
-  display:inline-flex; align-items:center; justify-content:center;
-  gap:8px;
-  padding:13px 16px;
-  border-radius:999px;
-  font-size:13px; font-weight:600;
-  letter-spacing:0.06em; text-transform:uppercase;
-  min-height:48px;
-}
-.mobile-cta .call{
-  background:transparent;
-  color:var(--cream);
-  border:1px solid rgba(244,236,216,.3);
-}
-.mobile-cta .book{
-  background:var(--terracotta);
-  color:var(--cream);
-}
-.mobile-cta .book:hover{background:var(--terracotta-deep)}
-@media(max-width:720px){
-  .mobile-cta{display:flex}
-  body{padding-bottom:80px} /* prevent footer overlap */
-}
-
-/* ============================================================
    16. REVEAL ANIMATIONS
    ============================================================ */
 .reveal{
