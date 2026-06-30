@@ -1,29 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Italian homepage -->
   <url>
-    <loc>https://www.alsicomoro.it/</loc>
+    <loc>https://alsicomoro.com/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://alsicomoro.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alsicomoro.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alsicomoro.com/"/>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <!-- English homepage -->
   <url>
-    <loc>https://www.alsicomoro.it/chi-siamo.html</loc>
+    <loc>https://alsicomoro.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://alsicomoro.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alsicomoro.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alsicomoro.com/"/>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Italian Chi Siamo -->
+  <url>
+    <loc>https://alsicomoro.com/chi-siamo.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://alsicomoro.com/chi-siamo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alsicomoro.com/en/chi-siamo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alsicomoro.com/chi-siamo.html"/>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <!-- English Chi Siamo -->
   <url>
-    <loc>https://www.alsicomoro.it/menu.html</loc>
+    <loc>https://alsicomoro.com/en/chi-siamo.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://alsicomoro.com/chi-siamo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alsicomoro.com/en/chi-siamo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alsicomoro.com/chi-siamo.html"/>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Italian Menu -->
+  <url>
+    <loc>https://alsicomoro.com/menu.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://alsicomoro.com/menu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alsicomoro.com/en/menu.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alsicomoro.com/menu.html"/>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <!-- English Menu -->
   <url>
-    <loc>https://www.alsicomoro.it/galleria.html</loc>
-    <priority>0.5</priority>
+    <loc>https://alsicomoro.com/en/menu.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://alsicomoro.com/menu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alsicomoro.com/en/menu.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alsicomoro.com/menu.html"/>
+    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Italian Contatti -->
   <url>
-    <loc>https://www.alsicomoro.it/contatti.html</loc>
+    <loc>https://alsicomoro.com/contatti.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://alsicomoro.com/contatti.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alsicomoro.com/en/contatti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alsicomoro.com/contatti.html"/>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <!-- English Contatti -->
+  <url>
+    <loc>https://alsicomoro.com/en/contatti.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://alsicomoro.com/contatti.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alsicomoro.com/en/contatti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alsicomoro.com/contatti.html"/>
+    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

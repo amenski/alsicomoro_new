@@ -1,0 +1,28 @@
+# Al Sicomoro
+
+> Eritrean & Ethiopian restaurant in Milano — traditional Horn of Africa cuisine with homemade injera, zighini, kitfo, and coffee ceremony.
+
+## Key pages
+
+- [Home](https://alsicomoro.com/): Full landing page — story, menu highlights, reviews, visit info
+- [Menu](https://alsicomoro.com/menu.html): Complete menu with dish cards and categories
+- [Chi Siamo](https://alsicomoro.com/chi-siamo.html): Family story — run by Zaid and Giulia
+- [Contatti](https://alsicomoro.com/contatti.html): Contact, reservations, location, hours
+- [Galleria](https://alsicomoro.com/galleria.html): Photo gallery (placeholder, noindex)
+## English (EN)
+- [Home (EN)](https://alsicomoro.com/en/): Full landing page in English
+- [Menu (EN)](https://alsicomoro.com/en/menu.html): Complete menu in English
+- [Chi Siamo (EN)](https://alsicomoro.com/en/chi-siamo.html): About page in English
+- [Contatti (EN)](https://alsicomoro.com/en/contatti.html): Contact page in English
+
+## Details
+
+**Cuisine:** Traditional Eritrean & Ethiopian — injera (3-day teff fermentation), zighini (spiced stews), kitfo (minced beef), shiro (chickpea stew), tibs (sautéed meat).
+
+**Address:** Via Panfilo Castaldi 19, 20124 Milano — near M1 Porta Venezia metro.
+
+**Features:** Bilingual IT/EN menu and service, vegetarian and vegan options, traditional coffee ceremony, TheFork reservations available.
+
+## Contact
+
+info@alsicomoro.it

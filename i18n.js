@@ -6,7 +6,7 @@
     'Contatti': 'Contact',
     'Prenota un tavolo': 'Reserve a table',
     'Cucina del Corno d\'Africa': 'Horn of Africa Cuisine',
-    'Sotto il <em>sicomoro</em>, la tradizione si racconta.': 'Under the <em>sycamore</em>, tradition speaks.',
+    'Sotto al <em>sicomoro</em>, la tradizione si racconta.': 'Under the <em>sycamore</em>, tradition speaks.',
     'Un ristorante eritreo ed etiope nel cuore di Porta Venezia. Injera fatta in casa, spezie macinate al momento, ricette tramandate da generazioni.': 'An Eritrean and Ethiopian restaurant in the heart of Porta Venezia. Homemade injera, freshly ground spices, recipes passed down through generations.',
     'Prenota un tavolo <span class="arrow" aria-hidden="true">→</span>': 'Reserve a table <span class="arrow" aria-hidden="true">→</span>',
     'Scopri il menu': 'Discover the menu',
