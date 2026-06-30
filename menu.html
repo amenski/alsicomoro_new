@@ -142,6 +142,14 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
   .topbar .hideMob{display:none}
   .topbar .right{gap:14px}
 }
+.lang-toggle{
+  color:var(--cream); font-size:12px; font-weight:500;
+  letter-spacing:0.06em; cursor:pointer;
+  padding:4px 8px; border-radius:4px;
+  transition:opacity .2s;
+}
+.lang-toggle:hover{opacity:.8}
+.lang-toggle .lang-active{font-weight:700; color:var(--ochre)}
 
 /* ============================================================
    5. NAVIGATION (mobile-first, slide-in drawer)
@@ -203,7 +211,7 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 .nav-links a:not(.btn):focus-visible{color:var(--terracotta)}
 .nav-links a:not(.btn):hover::after,
 .nav-links a:not(.btn):focus-visible::after,
-.nav-links a:not(.btn)[]::after{width:100%}
+.nav-links a:not(.btn)[aria-current="page"]::after{width:100%}
 .nav-links a:not(.btn)[aria-current="page"]{color:var(--terracotta)}
 
 /* CTA button */
@@ -1037,8 +1045,8 @@ footer{
 }
 
 /* ============================================================
-   15. MOBILE BOOK-NOW BAR (sticky bottom CTA)
-/* Floating WhatsApp button */
+   15. FLOATING WHATSAPP BUTTON
+   ============================================================ */
 .whatsapp-float{
   position:fixed; bottom:100px; right:20px; z-index:80;
   width:56px; height:56px; border-radius:50%;
@@ -1062,9 +1070,11 @@ footer{
 .whatsapp-float:hover .tooltip,
 .whatsapp-float:focus-visible .tooltip{opacity:1}
 @media(max-width:720px){
-  .whatsapp-float{bottom:100px; right:14px; width:50px; height:50px}
-  .whatsapp-float svg{width:24px; height:24px}
+  .whatsapp-float{display:none}
 }
+
+/* ============================================================
+   15b. MOBILE BOOK-NOW BAR (sticky bottom CTA)
    ============================================================ */
 .mobile-cta{
   position:fixed;
@@ -1185,7 +1195,7 @@ footer{
   </div>
   <div class="right">
     <a href="tel:+39022563527" class="hideMob">02 2563527</a>
-    <a href="#" class="hideMob" aria-label="Cambia lingua">IT / EN</a>
+    <button class="lang-toggle hideMob" aria-label="Change language"><span class="lang-active">IT</span> / <span>EN</span></button>
     <a href="contatti.html"><strong>Prenota</strong></a>
   </div>
 </div>
@@ -1649,5 +1659,6 @@ footer{
   });
 })();
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>
