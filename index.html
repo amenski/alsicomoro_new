@@ -850,7 +850,7 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
   gap:20px;
 }
 @media(min-width:768px){
-  .reviews-grid{grid-template-columns:repeat(3, 1fr)}
+  .reviews-grid{grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))}
 }
 .review-card{
   background:var(--cream);
@@ -994,7 +994,7 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 /* ============================================================
    14. FOOTER
    ============================================================ */
-footer{
+#site-footer > footer{
   background:var(--ink);
   color:rgba(244,236,216,.7);
   padding:64px var(--pad-x) 32px;
@@ -1404,27 +1404,51 @@ footer{
   </div>
   <div class="reviews-grid">
     <article class="review-card reveal-child">
-      <div class="review-stars" aria-label="5 stelle su 5">★★★★★</div>
-      <blockquote>Un'esperienza autentica. L'injera è la migliore che abbia mai assaggiato fuori dall'Eritrea, e il servizio ti fa sentire a casa.</blockquote>
+      <div class="review-stars" aria-label="5 stars out of 5">★★★★★</div>
+      <blockquote>What an amazing experience. Food is delicious, the staff is lovely and a very beautiful venue as well. One of the best and most authentic African meals I've had outside of Africa.</blockquote>
       <footer>
-        <div class="reviewer">Marco R.</div>
-        <div class="platform">TheFork</div>
+        <div class="reviewer">Lucio Ferrantini</div>
+        <div class="platform">Google · Local Guide</div>
       </footer>
     </article>
     <article class="review-card reveal-child">
-      <div class="review-stars" aria-label="5 stelle su 5">★★★★★</div>
-      <blockquote>Atmosfera intima, personale gentilissimo. Il kitfo semicrudo è un viaggio nei sapori. Ci torno ogni volta che sono a Milano.</blockquote>
+      <div class="review-stars" aria-label="5 stars out of 5">★★★★★</div>
+      <blockquote>From the very first bite, I was transported straight back home. The flavors are deeply authentic, rich, and comforting — exactly like a home cooked meal prepared with love. An absolute must.</blockquote>
       <footer>
-        <div class="reviewer">Sofia B.</div>
+        <div class="reviewer">Esayas Andemichael</div>
         <div class="platform">Google</div>
       </footer>
     </article>
     <article class="review-card reveal-child">
-      <div class="review-stars" aria-label="5 stelle su 5">★★★★★</div>
-      <blockquote>La cerimonia del caffè finale è imperdibile. Quaranta minuti di magia. Prenotate con anticipo perché il posto è piccolo ma vale ogni attesa.</blockquote>
+      <div class="review-stars" aria-label="5 stars out of 5">★★★★★</div>
+      <blockquote>An incredible surprise. Spicy meat stew, lentil stew, cubed beef and other vegetables perfectly spiced on a dish meant to be shared. Zaid is welcoming and Giulia an absolute delight. An absolute gem.</blockquote>
       <footer>
-        <div class="reviewer">Ahmed K.</div>
-        <div class="platform">TripAdvisor</div>
+        <div class="reviewer">Rachel Turner</div>
+        <div class="platform">Google</div>
+      </footer>
+    </article>
+    <article class="review-card reveal-child">
+      <div class="review-stars" aria-label="5 stars out of 5">★★★★★</div>
+      <blockquote>Excellent experience — food and service with kindness. If you're a local you'll be a regular, if you're a tourist it's a must try. Try the South African wine selection — you will not be disappointed.</blockquote>
+      <footer>
+        <div class="reviewer">Alan</div>
+        <div class="platform">Google · Local Guide</div>
+      </footer>
+    </article>
+    <article class="review-card reveal-child">
+      <div class="review-stars" aria-label="10 su 10">★★★★★</div>
+      <blockquote>Accoglienza ottima e atmosfera molto piacevole per arredi e musica. Ottima cucina etnica.</blockquote>
+      <footer>
+        <div class="reviewer">Silvia P.</div>
+        <div class="platform">TheFork · 10/10</div>
+      </footer>
+    </article>
+    <article class="review-card reveal-child">
+      <div class="review-stars" aria-label="9.5 su 10">★★★★★</div>
+      <blockquote>Personale infinitamente gentili e vi faranno scoppiare di cibo (soprattutto la mamma).</blockquote>
+      <footer>
+        <div class="reviewer">Joi C.</div>
+        <div class="platform">TheFork · 9.5/10</div>
       </footer>
     </article>
   </div>
