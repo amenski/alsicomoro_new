@@ -664,7 +664,7 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 .menu-head h2{max-width:14ch}
 
 .menu-tabs{
-  display:flex; gap:8px; flex-wrap:wrap;
+  display:flex; gap:8px; flex-wrap:nowrap;
   margin-bottom:40px;
   padding-bottom:24px;
   border-bottom:1px solid var(--line);
@@ -1113,6 +1113,8 @@ footer{
   color:var(--cream);
 }
 .mobile-cta .book:hover{background:var(--terracotta-deep)}
+.mobile-cta .wa{background:#25D366; color:#fff}
+.mobile-cta .wa:hover{background:#1ebe5d}
 @media(max-width:720px){
   .mobile-cta{display:flex}
   body{padding-bottom:80px} /* prevent footer overlap */
@@ -1562,7 +1564,7 @@ footer{
 <!-- ===================== MOBILE STICKY CTA ===================== -->
 <div class="mobile-cta" aria-label="Azioni rapide">
   <a href="tel:+39022563527" class="call">Chiama</a>
-  <a href="https://wa.me/393514313058" class="book" target="_blank" rel="noopener">WhatsApp</a>
+  <a href="https://wa.me/393514313058" class="wa" target="_blank" rel="noopener">WhatsApp</a>
   <a href="contatti.html" class="book">Prenota</a>
 </div>
 
