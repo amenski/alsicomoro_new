@@ -215,9 +215,8 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 }
 @media(max-width:1100px){
   .nav-links{gap:20px}
-  .nav-links .btn{padding:11px 16px; font-size:12px; letter-spacing:0.06em}
 }
-.nav-links a{
+.nav-links a:not(.btn){
   font-size:14px;
   font-weight:500;
   letter-spacing:0.04em;
@@ -319,6 +318,14 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 }
 @media(min-width:981px){
   .menu-toggle{display:none}
+  .nav-lang-item{display:none}
+}
+@media(max-width:980px){
+  .nav-lang-item .lang-toggle{
+    color:var(--charcoal); font-size:16px; font-family:var(--serif);
+    padding:8px 0; letter-spacing:0.04em;
+  }
+  .nav-lang-item .lang-toggle .lang-active{color:var(--terracotta)}
 }
 
 /* ============================================================
