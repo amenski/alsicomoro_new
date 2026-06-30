@@ -301,6 +301,14 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 }
 @media(min-width:981px){
   .menu-toggle{display:none}
+  .nav-lang-item{display:none}
+}
+@media(max-width:980px){
+  .nav-lang-item .lang-toggle{
+    color:var(--charcoal); font-size:16px; font-family:var(--serif);
+    padding:8px 0; letter-spacing:0.04em;
+  }
+  .nav-lang-item .lang-toggle .lang-active{color:var(--terracotta)}
 }
 
 /* ============================================================
@@ -1227,6 +1235,7 @@ footer{
     <li><a href="galleria.html" data-i18n="nav_gallery">Galleria</a></li>
     <li><a href="contatti.html" data-i18n="nav_contact">Contatti</a></li>
     <li><a href="contatti.html" class="btn" data-i18n="nav_cta">Prenota un tavolo <span class="arrow" aria-hidden="true">→</span></a></li>
+    <li class="nav-lang-item"><button class="lang-toggle" aria-label="Change language"><span class="lang-active">IT</span> / <span>EN</span></button></li>
   </ul>
   <button class="menu-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks" id="menuToggle">
     <span></span><span></span><span></span>
