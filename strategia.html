@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Al Sicomoro — Strategia di redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --terracotta:#B5471E;
+  --terracotta-deep:#8A3415;
+  --ochre:#D9A441;
+  --cream:#F4ECD8;
+  --cream-soft:#FAF5E8;
+  --charcoal:#1F1A14;
+  --charcoal-soft:#3A332A;
+  --ink:#0E0C09;
+  --line:rgba(31,26,20,0.12);
+  --serif:'DM Serif Display', serif;
+  --sans:'Manrope', system-ui, sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{
+  font-family:var(--sans);
+  background:var(--cream-soft);
+  color:var(--charcoal);
+  line-height:1.7;
+  padding:60px clamp(20px, 5vw, 80px) 100px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px; margin:0 auto}
+
+header{margin-bottom:60px; padding-bottom:40px; border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:var(--terracotta); font-weight:500; margin-bottom:20px}
+h1{font-family:var(--serif); font-size:clamp(40px,6vw,68px); line-height:1.05; letter-spacing:-0.01em; color:var(--ink); margin-bottom:18px}
+h1 em{font-style:italic; color:var(--terracotta)}
+.subtitle{font-size:18px; color:var(--charcoal-soft); max-width:58ch}
+
+h2{font-family:var(--serif); font-size:clamp(28px,4vw,42px); line-height:1.15; color:var(--ink); margin:64px 0 24px; letter-spacing:-0.01em}
+h2 .num{color:var(--ochre); font-style:italic; margin-right:14px}
+h3{font-family:var(--serif); font-size:24px; color:var(--ink); margin:32px 0 12px; line-height:1.25}
+h4{font-family:var(--sans); font-size:13px; letter-spacing:0.18em; text-transform:uppercase; color:var(--terracotta); font-weight:600; margin:24px 0 10px}
+
+p{margin-bottom:16px; font-size:16px; color:var(--charcoal-soft)}
+ul, ol{margin:12px 0 20px 22px}
+li{margin-bottom:10px; font-size:16px; color:var(--charcoal-soft)}
+li strong{color:var(--ink); font-weight:600}
+strong{color:var(--ink); font-weight:600}
+
+.note{
+  margin:28px 0;
+  padding:24px 28px;
+  background:var(--cream);
+  border-left:3px solid var(--terracotta);
+  border-radius:0 8px 8px 0;
+}
+.note p:last-child{margin-bottom:0}
+.note .label{font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--terracotta); font-weight:600; margin-bottom:8px}
+
+.callout{
+  margin:32px 0;
+  padding:28px;
+  background:var(--ink);
+  color:var(--cream);
+  border-radius:10px;
+}
+.callout h3{color:var(--cream); font-family:var(--serif); font-size:22px; margin-bottom:10px}
+.callout p{color:rgba(244,236,216,.8); font-size:15px}
+
+.grid2{
+  display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:24px 0;
+}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:22px 24px;
+}
+.card h4{margin-top:0}
+.card p{font-size:14px; margin-bottom:0}
+
+.compare{
+  display:grid; grid-template-columns:1fr 1fr; gap:0;
+  border:1px solid var(--line); border-radius:10px; overflow:hidden;
+  margin:24px 0;
+}
+@media(max-width:680px){.compare{grid-template-columns:1fr}}
+.compare > div{padding:24px 26px}
+.compare .now{background:#fff7f3; border-right:1px solid var(--line)}
+.compare .new{background:var(--cream); color:var(--ink)}
+@media(max-width:680px){.compare .now{border-right:none; border-bottom:1px solid var(--line)}}
+.compare h4{margin-top:0}
+.compare ul{margin-left:18px}
+
+.swatch-row{display:flex; gap:14px; flex-wrap:wrap; margin:18px 0 8px}
+.sw{
+  width:78px; text-align:center;
+}
+.sw .chip{width:78px; height:78px; border-radius:10px; border:1px solid var(--line); margin-bottom:8px}
+.sw .name{font-size:11px; font-weight:600; letter-spacing:0.05em; color:var(--ink)}
+.sw .hex{font-family:var(--serif); font-size:12px; color:var(--charcoal-soft); font-style:italic}
+
+.cta{
+  margin-top:60px;
+  padding:32px;
+  background:var(--cream);
+  border-radius:10px;
+  display:flex; gap:20px; align-items:center; flex-wrap:wrap; justify-content:space-between;
+}
+.cta a{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 26px;
+  background:var(--terracotta);
+  color:var(--cream);
+  font-size:13px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+  border-radius:999px;
+  text-decoration:none;
+  transition:background .2s;
+}
+.cta a:hover{background:var(--terracotta-deep)}
+.cta-text strong{display:block; font-family:var(--serif); font-size:22px; color:var(--ink); margin-bottom:4px; font-weight:400}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Strategia di redesign</div>
+  <h1>Al Sicomoro,<br><em>ripensato per il web di oggi.</em></h1>
+  <p class="subtitle">Una proposta strategica per portare alsicomoro.com al livello di ristorante-africa.it — e oltre. Identità, struttura, gerarchia, UX, palette e stack tecnico.</p>
+</header>
+
+<!-- 1 — DIAGNOSI -->
+<h2><span class="num">01</span>Diagnosi del sito attuale</h2>
+<p>Al Sicomoro è uno dei migliori ristoranti eritrei di Milano (9.7/10 su TheFork), ma il sito non comunica questa qualità. Il confronto con ristorante-africa.it mette in luce alcuni gap immediati.</p>
+
+<div class="compare">
+  <div class="now">
+    <h4>alsicomoro.com oggi</h4>
+    <ul>
+      <li>Mancanza di una gerarchia visiva chiara — tutto compete per l'attenzione</li>
+      <li>Navigazione poco distintiva e non sempre accessibile da mobile</li>
+      <li>Fotografia e contenuti visivi sottoutilizzati</li>
+      <li>CTA di prenotazione poco evidente</li>
+      <li>Identità visiva debole rispetto al posizionamento del ristorante</li>
+      <li>Esperienza mobile non ottimizzata</li>
+    </ul>
+  </div>
+  <div class="new">
+    <h4>Obiettivi del redesign</h4>
+    <ul>
+      <li>Identità editoriale, calda, riconoscibile</li>
+      <li>Navigazione sticky con CTA "Prenota" sempre presente</li>
+      <li>Hero asimmetrico con visual forte e proposta di valore chiara</li>
+      <li>Storytelling: storia, esperienza, cerimonia del caffè</li>
+      <li>Menu strutturato con tag (carne / vegano / piccante) e prezzi</li>
+      <li>Mobile-first: tipografia fluida, layout responsive, animazioni leggere</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 2 — POSIZIONAMENTO -->
+<h2><span class="num">02</span>Posizionamento e tono</h2>
+<p>Ristorante Africa adotta un template "hospitality classic" — slider, forme decorative, headline grandi. È efficace ma generico. Per Al Sicomoro propongo di andare oltre, con un'identità più <strong>editoriale e culturalmente radicata</strong>: degna del posizionamento del ristorante e del quartiere (Porta Venezia, una delle aree più stilose di Milano).</p>
+
+<div class="note">
+  <div class="label">Concept guida</div>
+  <p><strong>"Sotto il sicomoro, la tradizione si racconta."</strong></p>
+  <p>L'albero sicomoro come metafora: radici profonde nella cultura del Corno d'Africa, e chioma aperta che ospita. La cucina come gesto di racconto, non solo come piatto.</p>
+</div>
+
+<!-- 3 — STRUTTURA -->
+<h2><span class="num">03</span>Struttura della homepage</h2>
+<p>Una single-page narrativa, divisa in sezioni che accompagnano l'utente dalla scoperta alla prenotazione. Ogni sezione ha un ruolo preciso.</p>
+
+<ol>
+  <li><strong>Top bar</strong> — stato di apertura in tempo reale, telefono, lingua, "Prenota" sempre visibile.</li>
+  <li><strong>Navigazione sticky</strong> — logo + 4 voci + CTA prenotazione, con menu hamburger su mobile.</li>
+  <li><strong>Hero asimmetrico</strong> — eyebrow + headline editoriale + lead + doppia CTA + 3 statistiche di credibilità (rating, anni di attività, n. piatti).</li>
+  <li><strong>Marquee scorrevole</strong> — nomi dei piatti chiave (injera, zighinì, kitfo, shiro…) in stile editoriale. Crea ritmo e SEO insieme.</li>
+  <li><strong>La storia</strong> — chi siamo, da dove veniamo, il valore dell'injera fatta in casa. Citazione di famiglia.</li>
+  <li><strong>Menu strutturato</strong> — tab di filtro (tutti / carne / vegetariano / vegano / antipasti / bevande), card con foto, tag, prezzo, origine, link al PDF completo.</li>
+  <li><strong>Esperienza al tavolo</strong> — 4 pilastri (injera, berberè, condivisione, cerimonia del caffè). Sezione scura, su sfondo nero, alto contrasto.</li>
+  <li><strong>Visitaci</strong> — indirizzo, orari, telefono, mappa stilizzata con pin animato, doppia CTA (TheFork + telefono).</li>
+  <li><strong>Footer</strong> — riepilogo info, social, link utili, navigazione di servizio.</li>
+</ol>
+
+<!-- 4 — IDENTITÀ VISIVA -->
+<h2><span class="num">04</span>Identità visiva</h2>
+
+<h4>Palette cromatica</h4>
+<p>Una palette ispirata alla terra, alle spezie e ai tessuti tradizionali. Niente tinte fluo, niente gradient generici.</p>
+<div class="swatch-row">
+  <div class="sw"><div class="chip" style="background:#B5471E"></div><div class="name">Terracotta</div><div class="hex">#B5471E</div></div>
+  <div class="sw"><div class="chip" style="background:#8A3415"></div><div class="name">Profondo</div><div class="hex">#8A3415</div></div>
+  <div class="sw"><div class="chip" style="background:#D9A441"></div><div class="name">Ocra</div><div class="hex">#D9A441</div></div>
+  <div class="sw"><div class="chip" style="background:#F4ECD8"></div><div class="name">Crema</div><div class="hex">#F4ECD8</div></div>
+  <div class="sw"><div class="chip" style="background:#FAF5E8"></div><div class="name">Crema soft</div><div class="hex">#FAF5E8</div></div>
+  <div class="sw"><div class="chip" style="background:#1F1A14"></div><div class="name">Carbone</div><div class="hex">#1F1A14</div></div>
+</div>
+
+<h4>Tipografia</h4>
+<div class="grid2">
+  <div class="card">
+    <h4 style="margin-top:0">Display</h4>
+    <p style="font-family:var(--serif); font-size:34px; line-height:1.05; color:var(--ink); margin-bottom:8px">DM Serif Display</p>
+    <p>Serif con personalità, tono editoriale, italic espressivo. Per headline e prezzi.</p>
+  </div>
+  <div class="card">
+    <h4 style="margin-top:0">Body</h4>
+    <p style="font-family:var(--sans); font-size:22px; font-weight:500; color:var(--ink); margin-bottom:8px">Manrope</p>
+    <p>Sans-serif geometrica, leggibile, moderna. Per testi correnti, navigazione, UI.</p>
+  </div>
+</div>
+
+<h4>Trattamento delle immagini</h4>
+<ul>
+  <li>Fotografia ravvicinata dei piatti (top-down su injera, dettagli di spezie e mani che condividono)</li>
+  <li>Ritratti in cucina con luce naturale calda</li>
+  <li>Niente stock photo, niente filtri pesanti</li>
+  <li>Ogni piatto del menu ha una propria foto coerente con la palette</li>
+</ul>
+
+<!-- 5 — UX -->
+<h2><span class="num">05</span>UX e conversione</h2>
+<p>L'obiettivo primario del sito è chiaro: <strong>far prenotare un tavolo</strong>. Tutto il design lavora per questo, senza essere insistente.</p>
+
+<div class="grid2">
+  <div class="card">
+    <h4>CTA "Prenota" persistente</h4>
+    <p>Presente nella top bar, nella nav, nell'hero, nella sezione Visitaci. Sempre a portata di tap.</p>
+  </div>
+  <div class="card">
+    <h4>Stato di apertura live</h4>
+    <p>"Aperto oggi · 12:00 — 15:00 · 19:00 — 23:30" con pallino animato. Rassicura prima ancora del click.</p>
+  </div>
+  <div class="card">
+    <h4>Filtri menu funzionali</h4>
+    <p>Vegetariano / vegano / piccante: 30% dei clienti cerca proprio questo. Renderlo immediato.</p>
+  </div>
+  <div class="card">
+    <h4>Mappa stilizzata</h4>
+    <p>Una mappa illustrata coerente con il design, con pin animato. La mappa Google embed va attivata via consenso cookie.</p>
+  </div>
+  <div class="card">
+    <h4>Animazioni di reveal</h4>
+    <p>Contenuti che entrano in scena allo scroll. Sottile, mai disturbante.</p>
+  </div>
+  <div class="card">
+    <h4>Mobile-first</h4>
+    <p>Sticky nav, hamburger menu, click-to-call diretto, tipografia fluida con clamp().</p>
+  </div>
+</div>
+
+<!-- 6 — TECNICO -->
+<h2><span class="num">06</span>Stack e implementazione</h2>
+<p>Il prototipo è realizzato in HTML/CSS/JS vanilla per la massima portabilità. Per produzione consiglio una di queste vie:</p>
+
+<ul>
+  <li><strong>Astro o 11ty (consigliato)</strong> — static site generator. Velocità massima, costi di hosting minimi, SEO ottimo. Ideale per un sito vetrina.</li>
+  <li><strong>WordPress + tema custom</strong> — se il cliente vuole gestire il menu in autonomia. Più pesante, ma più familiare.</li>
+  <li><strong>Webflow</strong> — se si vuole un CMS visuale e nessuna manutenzione tecnica. Costo mensile ricorrente.</li>
+</ul>
+
+<h4>Integrazioni necessarie</h4>
+<ul>
+  <li><strong>TheFork API</strong> o widget per prenotazione</li>
+  <li><strong>Google Maps</strong> embed (con banner cookie GDPR)</li>
+  <li><strong>Google Business Profile</strong> sincronizzato per orari, foto, recensioni</li>
+  <li><strong>Meta Pixel / GA4</strong> per tracking conversioni</li>
+  <li><strong>Schema.org Restaurant</strong> per rich snippets su Google (già presente in parte, da migliorare)</li>
+</ul>
+
+<!-- 7 — SEO -->
+<h2><span class="num">07</span>SEO e contenuti</h2>
+<p>Il sito attuale ha già una buona base di keyword nei meta tag. Per consolidare la posizione su "ristorante eritreo Milano" e termini affini:</p>
+<ul>
+  <li>Pagina dedicata per ogni piatto chiave (zighinì, injera, kitfo, shiro) con descrizione editoriale, foto, contesto culturale</li>
+  <li>Blog con 4-6 articoli all'anno: "Come si mangia l'injera", "La cerimonia del caffè etiope", "Cosa significa zighinì"</li>
+  <li>Pagina FAQ con risposte alle domande più frequenti</li>
+  <li>Schema markup completo (Restaurant, Menu, MenuItem, Review)</li>
+  <li>Versione inglese per turisti internazionali — Porta Venezia attira tantissimi stranieri</li>
+</ul>
+
+<!-- 8 — ROADMAP -->
+<h2><span class="num">08</span>Roadmap di lancio</h2>
+<ol>
+  <li><strong>Settimana 1–2</strong> — approvazione del concept, photoshoot piatti e cucina (mezza giornata)</li>
+  <li><strong>Settimana 3–4</strong> — design rifinito (logo, palette, mockup di tutte le sezioni)</li>
+  <li><strong>Settimana 5–6</strong> — sviluppo front-end, integrazione TheFork, contenuti</li>
+  <li><strong>Settimana 7</strong> — test, ottimizzazione PageSpeed, accessibility audit (WCAG AA)</li>
+  <li><strong>Settimana 8</strong> — go-live, Google Search Console, monitoraggio conversioni</li>
+</ol>
+
+<div class="callout">
+  <h3>Risultato atteso</h3>
+  <p>Un sito che comunica subito qualità, autenticità, e cura. Un'esperienza che si traduce in più prenotazioni dirette (riducendo le commissioni TheFork), più visibilità organica su Google, e una percezione del marchio coerente col livello della cucina.</p>
+</div>
+
+<div class="cta">
+  <div class="cta-text">
+    <strong>Pronto a partire?</strong>
+    <span style="color:var(--charcoal-soft); font-size:14px">Vedi anche il prototipo della homepage redesigned.</span>
+  </div>
+  <a href="index.html">Apri il prototipo →</a>
+</div>
+
+</div>
+
+</body>
+</html>
