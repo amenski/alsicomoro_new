@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Al Sicomoro — Ristorante Eritreo & Etiope a Milano Porta Venezia</title>
-<meta name="description" content="Cucina del Corno d'Africa nel cuore di Porta Venezia. Injera fatta in casa, zighinì, kitfo, shiro. Via Panfilo Castaldi 19, Milano." />
+<title>Chi Siamo | Al Sicomoro – La nostra storia eritrea a Milano</title>
+<meta name="description" content="Scopri la storia di Al Sicomoro, ristorante eritreo a Milano Porta Venezia. Da Asmara a Milano, portiamo autenticità, comunità e ospitalità habesha." />
 
 <!--
   ===========================================================
@@ -1170,13 +1170,9 @@ footer{
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.alsicomoro.it"
-    }
-  ]
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.alsicomoro.it" },
+      { "@type": "ListItem", "position": 2, "name": "Chi Siamo", "item": "https://www.alsicomoro.it/chi-siamo.html" }
+    ]
 }
 </script>
 </head>
@@ -1205,7 +1201,7 @@ footer{
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="/" aria-current="page">Home</a></li>
-	    <li><a href="chi-siamo.html">Chi Siamo</a></li>
+	    <li><a href="chi-siamo.html" aria-current="page">Chi Siamo</a></li>
     <li><a href="menu.html">Menu</a></li>
     <li><a href="galleria.html">Galleria</a></li>
     <li><a href="contatti.html">Contatti</a></li>
@@ -1216,277 +1212,74 @@ footer{
   </button>
 </nav>
 
-<!-- ===================== HERO SLIDER ===================== -->
-<section class="hero" aria-label="Galleria principale">
+<!-- ===================== ABOUT HERO ===================== -->
+<section class="hero" style="min-height:50vh; max-height:560px; height:50vh" aria-label="Chi Siamo">
   <div class="slides" id="slides">
-    <div class="slide active" data-caption="Zighinì misto · piatto della casa">
-      <img class="slide-img" src="images/background.jpg" alt="Piatto di zighinì servito sull'injera al Sicomoro" loading="eager" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #8A3415, #B5471E)'; this.removeAttribute('src');">
-      <div class="slide-caption">01 — Zighinì misto · piatto della casa</div>
-    </div>
-    <div class="slide" data-caption="Mani che condividono · si mangia insieme">
-      <img class="slide-img" src="images/zigni-overhead.jpg" alt="Tavola condivisa con piatti tradizionali eritrei" loading="lazy" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #6B4A2A, #3D2615)'; this.removeAttribute('src');">
-      <div class="slide-caption">02 — Mani che condividono</div>
-    </div>
-    <div class="slide" data-caption="Atmosfera · sala del ristorante">
-      <img class="slide-img" src="images/tree.jpg" alt="Interno del ristorante Al Sicomoro" loading="lazy" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #2A3018, #1F1A14)'; this.removeAttribute('src');">
-      <div class="slide-caption">03 — Sala del ristorante</div>
+    <div class="slide active">
+      <img class="slide-img" src="images/tree.jpg" alt="Albero di sicomoro" loading="eager" width="1920" height="1080">
     </div>
   </div>
-
-  <div class="hero-content">
-    <div class="eyebrow">Cucina del Corno d'Africa · dal 2010</div>
-    <h1>Sotto il <em>sicomoro</em>, la tradizione si racconta.</h1>
-    <p class="lead">Un ristorante eritreo ed etiope nel cuore di Porta Venezia. Injera fatta in casa, spezie macinate al momento, ricette tramandate da generazioni.</p>
-    <div class="hero-cta">
-      <a href="contatti.html" class="btn">Prenota un tavolo <span class="arrow" aria-hidden="true">→</span></a>
-      <a href="#menu" class="btn ghost">Scopri il menu</a>
-    </div>
-  </div>
-
-  <div class="hero-stats" aria-label="Riconoscimenti">
-    <div class="stat"><div class="num">9.7</div><div class="label">TheFork</div></div>
-    <div class="stat"><div class="num">15</div><div class="label">Anni</div></div>
-    <div class="stat"><div class="num">40+</div><div class="label">Piatti</div></div>
-  </div>
-
-  <button class="slider-arrow slider-prev" aria-label="Slide precedente" id="sliderPrev">‹</button>
-  <button class="slider-arrow slider-next" aria-label="Slide successiva" id="sliderNext">›</button>
-  <div class="slider-dots" role="tablist" aria-label="Seleziona slide">
-    <button class="slider-dot active" data-slide="0" aria-label="Slide 1" aria-selected="true"></button>
-    <button class="slider-dot" data-slide="1" aria-label="Slide 2" aria-selected="false"></button>
-    <button class="slider-dot" data-slide="2" aria-label="Slide 3" aria-selected="false"></button>
+  <div class="hero-content" style="justify-content:center; padding-bottom:clamp(40px,6vh,80px); align-items:center; text-align:center">
+    <div class="eyebrow">La nostra storia</div>
+    <h1 style="text-align:center">Chi Siamo</h1>
+    <p class="lead" style="text-align:center; max-width:40ch">Da Asmara a Milano, portiamo l'autenticità della cucina eritrea e l'ospitalità habesha nel cuore di Porta Venezia.</p>
   </div>
 </section>
 
-<!-- ===================== MARQUEE ===================== -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>
-      Injera <span class="sep">✦</span> Zighinì <span class="sep">✦</span> Kitfo <span class="sep">✦</span> Shiro <span class="sep">✦</span> Tibs <span class="sep">✦</span> Berberè <span class="sep">✦</span> Tej <span class="sep">✦</span>
-    </span>
-    <span>
-      Injera <span class="sep">✦</span> Zighinì <span class="sep">✦</span> Kitfo <span class="sep">✦</span> Shiro <span class="sep">✦</span> Tibs <span class="sep">✦</span> Berberè <span class="sep">✦</span> Tej <span class="sep">✦</span>
-    </span>
-  </div>
-</div>
-
-<!-- ===================== STORIA ===================== -->
-<section class="section" id="storia">
+<!-- ===================== STORY ===================== -->
+<section class="section" style="background:var(--cream-soft)">
   <div class="story-grid">
-    <div class="story-image reveal">
-      <img src="images/tree.jpg" alt="La cucina del ristorante Al Sicomoro" loading="lazy" width="1000" height="1250" onerror="this.style.opacity='0'">
-      <span class="badge">La nostra storia</span>
-      <div class="label">"Il sicomoro è un albero che cresce dove la terra ricorda."</div>
-    </div>
-    <div class="story-text reveal">
+    <div class="story-text reveal" style="order:2">
       <div class="eyebrow reveal-child">Chi siamo</div>
-      <h2 class="reveal-child">Una tavola che unisce due rive.</h2>
-      <p class="reveal-child">Al Sicomoro nasce dall'incontro fra due culture e una stessa idea di ospitalità: la convivialità della tavola condivisa, il ritmo lento delle spezie, il calore dell'injera che arriva al centro come una mappa di sapori.</p>
-      <p class="reveal-child">Ogni mattina prepariamo l'injera secondo la tradizione, lasciando fermentare la pasta di teff per giorni. Le carni vengono marinate nel berberè della casa — una miscela di oltre dodici spezie tostate e macinate da noi.</p>
+      <h2 class="reveal-child">Da Asmara a Milano, con il cuore pieno.</h2>
+      <p class="reveal-child">Al Sicomoro nasce da un sogno semplice: portare a Milano l'autenticità della cucina eritrea — i sapori dell'infanzia, la generosità della tavola condivisa.</p>
+      <p class="reveal-child">Il nome viene dal sicomoro, il fico sacro dell'Eritrea. Un albero sotto cui le comunità si ritrovano da secoli. Volevamo creare quel luogo qui — a Porta Venezia — dove chiunque possa sedersi, mangiare con le mani, e sentirsi a casa.</p>
       <blockquote class="story-quote reveal-child">
-        "Mangiare con le mani non è folklore. È un modo di ricordare che il cibo passa prima dal cuore."
+        "Il sicomoro è più di un albero. È il luogo dove le famiglie si riuniscono, dove si condivide il cibo, dove si tramandano le storie. Abbiamo portato quell'ombra a Milano."
         <cite>— Famiglia Al Sicomoro</cite>
       </blockquote>
-      <a href="#esperienza" class="btn ghost reveal-child">L'esperienza al tavolo →</a>
+    </div>
+    <div class="story-image reveal" style="order:1">
+      <img src="images/tree.jpg" alt="Albero di sicomoro - simbolo del ristorante" loading="lazy" width="1000" height="1250" onerror="this.style.opacity='0'">
+      <span class="badge">Le nostre radici</span>
+      <div class="label">"Un albero sotto cui ci si incontra da secoli."</div>
     </div>
   </div>
 </section>
 
-<!-- ===================== MENU ===================== -->
-<section class="menu-section" id="menu">
-  <div class="inner">
-    <div class="menu-head reveal">
-      <div class="eyebrow reveal-child" style="margin-bottom:16px">Il menu</div>
-      <h2 class="reveal-child">Piatti che si raccontano.</h2>
-    </div>
-
-    <div class="menu-tabs reveal" role="tablist" aria-label="Filtra menu">
-      <button class="menu-tab active" data-filter="tutti" role="tab" aria-selected="true">Tutti</button>
-      <button class="menu-tab" data-filter="carne" role="tab" aria-selected="false">Carne</button>
-      <button class="menu-tab" data-filter="vegetariano" role="tab" aria-selected="false">Vegetariano</button>
-      <button class="menu-tab" data-filter="vegano" role="tab" aria-selected="false">Vegano</button>
-      <button class="menu-tab" data-filter="antipasti" role="tab" aria-selected="false">Antipasti</button>
-    </div>
-
-    <div class="menu-grid" id="menuGrid">
-      <article class="dish reveal" data-category="carne">
-        <div class="dish-img">
-          <span class="dish-tag spicy">Piccante</span>
-          <img src="images/zigni-overhead.jpg" alt="Zighinì di carne" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Zighinì di carne</h3>
-        <p class="desc">Spezzatino di manzo, pollo o agnello cotto a lungo nel berberè della casa, servito sull'injera con contorni di legumi e verdure speziate.</p>
-        <div class="foot"><span class="price">€17</span><span class="origin">Eritrea</span></div>
-      </article>
-
-      <article class="dish reveal" data-category="carne">
-        <div class="dish-img">
-          <span class="dish-tag">Specialità</span>
-          <img src="images/zigni-overhead.jpg" alt="Kitfo" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Kitfo</h3>
-        <p class="desc">Carne trita di manzo condita con burro speziato (niter kibbeh) e mitmita. Disponibile cruda, semicruda o cotta secondo tradizione.</p>
-        <div class="foot"><span class="price">€18</span><span class="origin">Etiopia</span></div>
-      </article>
-
-      <article class="dish reveal" data-category="vegano vegetariano">
-        <div class="dish-img">
-          <span class="dish-tag vegan">Vegano</span>
-          <img src="images/shiro.jpg" alt="Shiro" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Shiro</h3>
-        <p class="desc">Crema vellutata di ceci macinati e pomodoro fresco, profumata con cipolla, aglio e spezie. Un classico della cucina di casa.</p>
-        <div class="foot"><span class="price">€12</span><span class="origin">Eritrea</span></div>
-      </article>
-
-      <article class="dish reveal" data-category="carne">
-        <div class="dish-img">
-          <span class="dish-tag spicy">Piccante</span>
-          <img src="images/zigni-overhead.jpg" alt="Tibs" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Tibs</h3>
-        <p class="desc">Bocconcini di manzo saltati al momento con cipolla, rosmarino, peperoncino e burro speziato. Tre livelli di piccantezza a scelta.</p>
-        <div class="foot"><span class="price">€17</span><span class="origin">Etiopia</span></div>
-      </article>
-
-      <article class="dish reveal" data-category="vegano vegetariano">
-        <div class="dish-img">
-          <span class="dish-tag vegan">Vegano</span>
-          <img src="images/vegan.jpg" alt="Zighinì vegetariano" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Zighinì vegetariano</h3>
-        <p class="desc">Cinque tipi di legumi e verdure speziate: shiro, tumtumo (lenticchie), hamli (cime di rapa), sillsi e alicia. Servito sull'injera.</p>
-        <div class="foot"><span class="price">€16</span><span class="origin">Eritrea</span></div>
-      </article>
-
-      <article class="dish reveal" data-category="antipasti">
-        <div class="dish-img">
-          <span class="dish-tag">Fatto in casa</span>
-          <img src="images/vegan.jpg" alt="Injera" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Injera</h3>
-        <p class="desc">Pane fermentato di teff, lievitato naturalmente per tre giorni. È piatto, posata e tovaglia. Senza glutine.</p>
-        <div class="foot"><span class="price">€4</span><span class="origin">Casa</span></div>
-      </article>
-    </div>
-
-    <div class="menu-empty" id="menuEmpty">Nessun piatto in questa categoria.</div>
-  </div>
-</section>
-
-<!-- ===================== ESPERIENZA ===================== -->
-<section class="exp" id="esperienza">
+<!-- ===================== VALUES ===================== -->
+<section class="exp" id="valori">
   <div class="exp-inner">
-    <div class="eyebrow reveal">L'esperienza al tavolo</div>
-    <h2 class="reveal">Quattro cose che ci rendono <em>diversi</em>.</h2>
+    <div class="eyebrow reveal" style="text-align:center">I nostri valori</div>
+    <h2 class="reveal" style="text-align:center; max-width:none">Tre pilastri, una <em>missione</em>.</h2>
     <div class="exp-grid reveal">
-      <div class="exp-item reveal-child">
-        <span class="num">— 01</span>
-        <h3>Injera fatta in casa</h3>
-        <p>Tre giorni di fermentazione naturale del teff. Niente farine industriali, nessuna scorciatoia. Ogni mattina ricominciamo daccapo.</p>
+      <div class="exp-item reveal-child" style="text-align:center">
+        <span class="num">— Comunità —</span>
+        <h3>Mangiare insieme</h3>
+        <p>Mangiare insieme è un atto d'amore. Ogni tavolo da noi è una piccola comunità dove il cibo si condivide con le mani e con il cuore.</p>
       </div>
-      <div class="exp-item reveal-child">
-        <span class="num">— 02</span>
-        <h3>Berberè della casa</h3>
-        <p>Dodici spezie tostate e macinate da noi. È la firma di ogni piatto e non si trova in nessun'altra cucina di Milano.</p>
+      <div class="exp-item reveal-child" style="text-align:center">
+        <span class="num">— Autenticità —</span>
+        <h3>Nessuna scorciatoia</h3>
+        <p>L'injera è preparata fresca ogni giorno, le spezie arrivano direttamente dal Corno d'Africa. Ricette tramandate, ingredienti veri.</p>
       </div>
-      <div class="exp-item reveal-child">
-        <span class="num">— 03</span>
-        <h3>Si condivide. Sempre.</h3>
-        <p>Un unico grande piatto al centro del tavolo, e si mangia con le mani. La cucina è gesto, racconto, ricordo. Mai solo cibo.</p>
-      </div>
-      <div class="exp-item reveal-child">
-        <span class="num">— 04</span>
-        <h3>Caffè cerimonia</h3>
-        <p>A fine pasto, su richiesta, la cerimonia del caffè etiope. Chicchi tostati al tavolo, incenso, tre tazze. Quaranta minuti di silenzio condiviso.</p>
+      <div class="exp-item reveal-child" style="text-align:center">
+        <span class="num">— Accoglienza —</span>
+        <h3>Ospitalità habesha</h3>
+        <p>L'ospitalità habesha non si insegna — si eredita. Qui ogni ospite è di famiglia, ogni pasto è un abbraccio.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== REVIEWS ===================== -->
-<section class="reviews reveal">
+<!-- ===================== CTA ===================== -->
+<section class="reviews reveal" style="padding-top:0">
   <div class="reviews-head">
-    <div class="eyebrow reveal-child">Dicono di noi</div>
-    <h2 class="reveal-child">Chi è stato qui, ci è tornato.</h2>
-  </div>
-  <div class="reviews-grid">
-    <article class="review-card reveal-child">
-      <div class="review-stars" aria-label="5 stelle su 5">★★★★★</div>
-      <blockquote>Un'esperienza autentica. L'injera è la migliore che abbia mai assaggiato fuori dall'Eritrea, e il servizio ti fa sentire a casa.</blockquote>
-      <footer>
-        <div class="reviewer">Marco R.</div>
-        <div class="platform">TheFork</div>
-      </footer>
-    </article>
-    <article class="review-card reveal-child">
-      <div class="review-stars" aria-label="5 stelle su 5">★★★★★</div>
-      <blockquote>Atmosfera intima, personale gentilissimo. Il kitfo semicrudo è un viaggio nei sapori. Ci torno ogni volta che sono a Milano.</blockquote>
-      <footer>
-        <div class="reviewer">Sofia B.</div>
-        <div class="platform">Google</div>
-      </footer>
-    </article>
-    <article class="review-card reveal-child">
-      <div class="review-stars" aria-label="5 stelle su 5">★★★★★</div>
-      <blockquote>La cerimonia del caffè finale è imperdibile. Quaranta minuti di magia. Prenotate con anticipo perché il posto è piccolo ma vale ogni attesa.</blockquote>
-      <footer>
-        <div class="reviewer">Ahmed K.</div>
-        <div class="platform">TripAdvisor</div>
-      </footer>
-    </article>
-  </div>
-</section>
-
-<!-- ===================== VISITA ===================== -->
-<section class="visit" id="visita">
-  <div class="visit-grid">
-    <div class="visit-text reveal" id="prenota">
-      <div class="eyebrow reveal-child">Visitaci</div>
-      <h2 class="reveal-child">Ti aspettiamo a Porta Venezia.</h2>
-      <p class="lead reveal-child">A due passi dalla metro, nel quartiere più cosmopolita di Milano. Prenota un tavolo per cena o passa per il pranzo — la sala è piccola, meglio avvisarci.</p>
-
-      <ul class="visit-list reveal-child">
-        <li>
-          <div class="icon" aria-hidden="true">⌖</div>
-          <div>
-            <div class="label">Indirizzo</div>
-            <div class="val">Via Panfilo Castaldi, 19</div>
-            <div class="sub">20124 Milano — a 200 m da Porta Venezia</div>
-          </div>
-        </li>
-        <li>
-          <div class="icon" aria-hidden="true">⏱</div>
-          <div>
-            <div class="label">Orari</div>
-            <div class="val">10:00–15:00 · 18:30–23:00</div>
-            <div class="sub">Mar–Dom · Lunedì chiuso</div>
-          </div>
-        </li>
-        <li>
-          <div class="icon" aria-hidden="true">☎</div>
-          <div>
-            <div class="label">Prenotazioni</div>
-            <div class="val"><a href="tel:+39022563527">02 2563527</a></div>
-            <div class="sub"><a href="https://wa.me/393514313058" target="_blank" rel="noopener">Anche WhatsApp</a> · 351 431 3058</div>
-          </div>
-        </li>
-      </ul>
-
-      <div class="visit-cta reveal-child">
-        <a href="https://www.thefork.it/ristorante/ristorante-al-sicomoro-r860688" class="btn" target="_blank" rel="noopener">Prenota su TheFork <span class="arrow" aria-hidden="true">→</span></a>
-        <a href="tel:+39022563527" class="btn ghost">Chiama ora</a>
-      </div>
-    </div>
-
-    <div class="map-card reveal">
-      <iframe src="https://www.google.com/maps?q=Ristorante+Al+Sicomoro+Via+Panfilo+Castaldi+19+Milano&hl=it&z=16&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa del ristorante Al Sicomoro"></iframe>
-      <div class="map-overlay">
-        <div class="place">Al Sicomoro</div>
-        <div class="addr">Via Panfilo Castaldi 19, Milano</div>
-        <div class="metro">M1 · Porta Venezia · 3 min</div>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Panfilo+Castaldi+19+Milano" target="_blank" rel="noopener" class="directions">Apri indicazioni →</a>
-      </div>
+    <h2 class="reveal-child" style="max-width:none">Pronto a provare i nostri piatti?</h2>
+    <p style="color:var(--charcoal-soft); margin-bottom:32px">Esplora il nostro menu autentico o prenota direttamente il tuo tavolo.</p>
+    <div class="hero-cta" style="justify-content:center">
+      <a href="menu.html" class="btn">Scopri il Menu <span class="arrow" aria-hidden="true">→</span></a>
+      <a href="contatti.html" class="btn ghost">Prenota un Tavolo</a>
     </div>
   </div>
 </section>
@@ -1508,7 +1301,7 @@ footer{
       <div class="footer-col">
         <h4>Naviga</h4>
         <ul>
-          <li><a href="chi-siamo.html">La storia</a></li>
+          <li><a href="chi-siamo.html" aria-current="page">La storia</a></li>
           <li><a href="menu.html">Menu</a></li>
           <li><a href="galleria.html">Galleria</a></li>
           <li><a href="contatti.html">Contatti</a></li>
@@ -1545,7 +1338,6 @@ footer{
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   <span class="tooltip">Prenota su WhatsApp</span>
 </a>
-
 <!-- ===================== MOBILE STICKY CTA ===================== -->
 <div class="mobile-cta" aria-label="Azioni rapide">
   <a href="tel:+39022563527" class="call">Chiama</a>

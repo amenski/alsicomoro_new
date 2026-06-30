@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Al Sicomoro — Ristorante Eritreo & Etiope a Milano Porta Venezia</title>
-<meta name="description" content="Cucina del Corno d'Africa nel cuore di Porta Venezia. Injera fatta in casa, zighinì, kitfo, shiro. Via Panfilo Castaldi 19, Milano." />
+<title>Menu | Al Sicomoro – Cucina Eritrea & Etiope Autentica</title>
+<meta name="description" content="Menu tradizionale eritreo ed etiope a Milano. Zighinì, shiro, kitfo, injera fatta in casa e piatti vegani. Al Sicomoro Porta Venezia." />
 
 <!--
   ===========================================================
@@ -203,7 +203,7 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 .nav-links a:not(.btn):focus-visible{color:var(--terracotta)}
 .nav-links a:not(.btn):hover::after,
 .nav-links a:not(.btn):focus-visible::after,
-.nav-links a:not(.btn)[aria-current="page"]::after{width:100%}
+.nav-links a:not(.btn)[]::after{width:100%}
 .nav-links a:not(.btn)[aria-current="page"]{color:var(--terracotta)}
 
 /* CTA button */
@@ -1170,13 +1170,9 @@ footer{
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.alsicomoro.it"
-    }
-  ]
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.alsicomoro.it" },
+      { "@type": "ListItem", "position": 2, "name": "Menu", "item": "https://www.alsicomoro.it/menu.html" }
+    ]
 }
 </script>
 </head>
@@ -1206,7 +1202,7 @@ footer{
   <ul class="nav-links" id="navLinks">
     <li><a href="/" aria-current="page">Home</a></li>
 	    <li><a href="chi-siamo.html">Chi Siamo</a></li>
-    <li><a href="menu.html">Menu</a></li>
+    <li><a href="menu.html" aria-current="page">Menu</a></li>
     <li><a href="galleria.html">Galleria</a></li>
     <li><a href="contatti.html">Contatti</a></li>
     <li><a href="contatti.html" class="btn">Prenota un tavolo <span class="arrow" aria-hidden="true">→</span></a></li>
@@ -1216,277 +1212,246 @@ footer{
   </button>
 </nav>
 
-<!-- ===================== HERO SLIDER ===================== -->
-<section class="hero" aria-label="Galleria principale">
-  <div class="slides" id="slides">
-    <div class="slide active" data-caption="Zighinì misto · piatto della casa">
-      <img class="slide-img" src="images/background.jpg" alt="Piatto di zighinì servito sull'injera al Sicomoro" loading="eager" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #8A3415, #B5471E)'; this.removeAttribute('src');">
-      <div class="slide-caption">01 — Zighinì misto · piatto della casa</div>
-    </div>
-    <div class="slide" data-caption="Mani che condividono · si mangia insieme">
-      <img class="slide-img" src="images/zigni-overhead.jpg" alt="Tavola condivisa con piatti tradizionali eritrei" loading="lazy" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #6B4A2A, #3D2615)'; this.removeAttribute('src');">
-      <div class="slide-caption">02 — Mani che condividono</div>
-    </div>
-    <div class="slide" data-caption="Atmosfera · sala del ristorante">
-      <img class="slide-img" src="images/tree.jpg" alt="Interno del ristorante Al Sicomoro" loading="lazy" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #2A3018, #1F1A14)'; this.removeAttribute('src');">
-      <div class="slide-caption">03 — Sala del ristorante</div>
-    </div>
-  </div>
-
-  <div class="hero-content">
-    <div class="eyebrow">Cucina del Corno d'Africa · dal 2010</div>
-    <h1>Sotto il <em>sicomoro</em>, la tradizione si racconta.</h1>
-    <p class="lead">Un ristorante eritreo ed etiope nel cuore di Porta Venezia. Injera fatta in casa, spezie macinate al momento, ricette tramandate da generazioni.</p>
-    <div class="hero-cta">
-      <a href="contatti.html" class="btn">Prenota un tavolo <span class="arrow" aria-hidden="true">→</span></a>
-      <a href="#menu" class="btn ghost">Scopri il menu</a>
-    </div>
-  </div>
-
-  <div class="hero-stats" aria-label="Riconoscimenti">
-    <div class="stat"><div class="num">9.7</div><div class="label">TheFork</div></div>
-    <div class="stat"><div class="num">15</div><div class="label">Anni</div></div>
-    <div class="stat"><div class="num">40+</div><div class="label">Piatti</div></div>
-  </div>
-
-  <button class="slider-arrow slider-prev" aria-label="Slide precedente" id="sliderPrev">‹</button>
-  <button class="slider-arrow slider-next" aria-label="Slide successiva" id="sliderNext">›</button>
-  <div class="slider-dots" role="tablist" aria-label="Seleziona slide">
-    <button class="slider-dot active" data-slide="0" aria-label="Slide 1" aria-selected="true"></button>
-    <button class="slider-dot" data-slide="1" aria-label="Slide 2" aria-selected="false"></button>
-    <button class="slider-dot" data-slide="2" aria-label="Slide 3" aria-selected="false"></button>
+<!-- ===================== MENU HERO ===================== -->
+<section class="hero" style="min-height:40vh; max-height:460px; height:40vh; background:var(--charcoal)" aria-label="Menu">
+  <div class="hero-content" style="justify-content:center; padding-bottom:clamp(40px,6vh,60px); align-items:center; text-align:center">
+    <div class="eyebrow">Il menu</div>
+    <h1 style="text-align:center; max-width:16ch">Il Nostro Menù</h1>
+    <p class="lead" style="text-align:center">Tutti i piatti principali sono serviti con injera — il pane tradizionale del Corno d'Africa.</p>
   </div>
 </section>
 
-<!-- ===================== MARQUEE ===================== -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>
-      Injera <span class="sep">✦</span> Zighinì <span class="sep">✦</span> Kitfo <span class="sep">✦</span> Shiro <span class="sep">✦</span> Tibs <span class="sep">✦</span> Berberè <span class="sep">✦</span> Tej <span class="sep">✦</span>
-    </span>
-    <span>
-      Injera <span class="sep">✦</span> Zighinì <span class="sep">✦</span> Kitfo <span class="sep">✦</span> Shiro <span class="sep">✦</span> Tibs <span class="sep">✦</span> Berberè <span class="sep">✦</span> Tej <span class="sep">✦</span>
-    </span>
-  </div>
-</div>
+<!-- ===================== FULL MENU ===================== -->
+<section class="menu-section" id="menu-full">
+  <div class="inner" style="padding-top:60px">
 
-<!-- ===================== STORIA ===================== -->
-<section class="section" id="storia">
-  <div class="story-grid">
-    <div class="story-image reveal">
-      <img src="images/tree.jpg" alt="La cucina del ristorante Al Sicomoro" loading="lazy" width="1000" height="1250" onerror="this.style.opacity='0'">
-      <span class="badge">La nostra storia</span>
-      <div class="label">"Il sicomoro è un albero che cresce dove la terra ricorda."</div>
-    </div>
-    <div class="story-text reveal">
-      <div class="eyebrow reveal-child">Chi siamo</div>
-      <h2 class="reveal-child">Una tavola che unisce due rive.</h2>
-      <p class="reveal-child">Al Sicomoro nasce dall'incontro fra due culture e una stessa idea di ospitalità: la convivialità della tavola condivisa, il ritmo lento delle spezie, il calore dell'injera che arriva al centro come una mappa di sapori.</p>
-      <p class="reveal-child">Ogni mattina prepariamo l'injera secondo la tradizione, lasciando fermentare la pasta di teff per giorni. Le carni vengono marinate nel berberè della casa — una miscela di oltre dodici spezie tostate e macinate da noi.</p>
-      <blockquote class="story-quote reveal-child">
-        "Mangiare con le mani non è folklore. È un modo di ricordare che il cibo passa prima dal cuore."
-        <cite>— Famiglia Al Sicomoro</cite>
-      </blockquote>
-      <a href="#esperienza" class="btn ghost reveal-child">L'esperienza al tavolo →</a>
-    </div>
-  </div>
-</section>
+    <div style="max-width:1000px; margin:0 auto">
 
-<!-- ===================== MENU ===================== -->
-<section class="menu-section" id="menu">
-  <div class="inner">
-    <div class="menu-head reveal">
-      <div class="eyebrow reveal-child" style="margin-bottom:16px">Il menu</div>
-      <h2 class="reveal-child">Piatti che si raccontano.</h2>
-    </div>
-
-    <div class="menu-tabs reveal" role="tablist" aria-label="Filtra menu">
-      <button class="menu-tab active" data-filter="tutti" role="tab" aria-selected="true">Tutti</button>
-      <button class="menu-tab" data-filter="carne" role="tab" aria-selected="false">Carne</button>
-      <button class="menu-tab" data-filter="vegetariano" role="tab" aria-selected="false">Vegetariano</button>
-      <button class="menu-tab" data-filter="vegano" role="tab" aria-selected="false">Vegano</button>
-      <button class="menu-tab" data-filter="antipasti" role="tab" aria-selected="false">Antipasti</button>
-    </div>
-
-    <div class="menu-grid" id="menuGrid">
-      <article class="dish reveal" data-category="carne">
-        <div class="dish-img">
-          <span class="dish-tag spicy">Piccante</span>
-          <img src="images/zigni-overhead.jpg" alt="Zighinì di carne" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Zighinì di carne</h3>
-        <p class="desc">Spezzatino di manzo, pollo o agnello cotto a lungo nel berberè della casa, servito sull'injera con contorni di legumi e verdure speziate.</p>
-        <div class="foot"><span class="price">€17</span><span class="origin">Eritrea</span></div>
-      </article>
-
-      <article class="dish reveal" data-category="carne">
-        <div class="dish-img">
-          <span class="dish-tag">Specialità</span>
-          <img src="images/zigni-overhead.jpg" alt="Kitfo" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Kitfo</h3>
-        <p class="desc">Carne trita di manzo condita con burro speziato (niter kibbeh) e mitmita. Disponibile cruda, semicruda o cotta secondo tradizione.</p>
-        <div class="foot"><span class="price">€18</span><span class="origin">Etiopia</span></div>
-      </article>
-
-      <article class="dish reveal" data-category="vegano vegetariano">
-        <div class="dish-img">
-          <span class="dish-tag vegan">Vegano</span>
-          <img src="images/shiro.jpg" alt="Shiro" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Shiro</h3>
-        <p class="desc">Crema vellutata di ceci macinati e pomodoro fresco, profumata con cipolla, aglio e spezie. Un classico della cucina di casa.</p>
-        <div class="foot"><span class="price">€12</span><span class="origin">Eritrea</span></div>
-      </article>
-
-      <article class="dish reveal" data-category="carne">
-        <div class="dish-img">
-          <span class="dish-tag spicy">Piccante</span>
-          <img src="images/zigni-overhead.jpg" alt="Tibs" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Tibs</h3>
-        <p class="desc">Bocconcini di manzo saltati al momento con cipolla, rosmarino, peperoncino e burro speziato. Tre livelli di piccantezza a scelta.</p>
-        <div class="foot"><span class="price">€17</span><span class="origin">Etiopia</span></div>
-      </article>
-
-      <article class="dish reveal" data-category="vegano vegetariano">
-        <div class="dish-img">
-          <span class="dish-tag vegan">Vegano</span>
-          <img src="images/vegan.jpg" alt="Zighinì vegetariano" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Zighinì vegetariano</h3>
-        <p class="desc">Cinque tipi di legumi e verdure speziate: shiro, tumtumo (lenticchie), hamli (cime di rapa), sillsi e alicia. Servito sull'injera.</p>
-        <div class="foot"><span class="price">€16</span><span class="origin">Eritrea</span></div>
-      </article>
-
-      <article class="dish reveal" data-category="antipasti">
-        <div class="dish-img">
-          <span class="dish-tag">Fatto in casa</span>
-          <img src="images/vegan.jpg" alt="Injera" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
-        </div>
-        <h3>Injera</h3>
-        <p class="desc">Pane fermentato di teff, lievitato naturalmente per tre giorni. È piatto, posata e tovaglia. Senza glutine.</p>
-        <div class="foot"><span class="price">€4</span><span class="origin">Casa</span></div>
-      </article>
-    </div>
-
-    <div class="menu-empty" id="menuEmpty">Nessun piatto in questa categoria.</div>
-  </div>
-</section>
-
-<!-- ===================== ESPERIENZA ===================== -->
-<section class="exp" id="esperienza">
-  <div class="exp-inner">
-    <div class="eyebrow reveal">L'esperienza al tavolo</div>
-    <h2 class="reveal">Quattro cose che ci rendono <em>diversi</em>.</h2>
-    <div class="exp-grid reveal">
-      <div class="exp-item reveal-child">
-        <span class="num">— 01</span>
-        <h3>Injera fatta in casa</h3>
-        <p>Tre giorni di fermentazione naturale del teff. Niente farine industriali, nessuna scorciatoia. Ogni mattina ricominciamo daccapo.</p>
-      </div>
-      <div class="exp-item reveal-child">
-        <span class="num">— 02</span>
-        <h3>Berberè della casa</h3>
-        <p>Dodici spezie tostate e macinate da noi. È la firma di ogni piatto e non si trova in nessun'altra cucina di Milano.</p>
-      </div>
-      <div class="exp-item reveal-child">
-        <span class="num">— 03</span>
-        <h3>Si condivide. Sempre.</h3>
-        <p>Un unico grande piatto al centro del tavolo, e si mangia con le mani. La cucina è gesto, racconto, ricordo. Mai solo cibo.</p>
-      </div>
-      <div class="exp-item reveal-child">
-        <span class="num">— 04</span>
-        <h3>Caffè cerimonia</h3>
-        <p>A fine pasto, su richiesta, la cerimonia del caffè etiope. Chicchi tostati al tavolo, incenso, tre tazze. Quaranta minuti di silenzio condiviso.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== REVIEWS ===================== -->
-<section class="reviews reveal">
-  <div class="reviews-head">
-    <div class="eyebrow reveal-child">Dicono di noi</div>
-    <h2 class="reveal-child">Chi è stato qui, ci è tornato.</h2>
-  </div>
-  <div class="reviews-grid">
-    <article class="review-card reveal-child">
-      <div class="review-stars" aria-label="5 stelle su 5">★★★★★</div>
-      <blockquote>Un'esperienza autentica. L'injera è la migliore che abbia mai assaggiato fuori dall'Eritrea, e il servizio ti fa sentire a casa.</blockquote>
-      <footer>
-        <div class="reviewer">Marco R.</div>
-        <div class="platform">TheFork</div>
-      </footer>
-    </article>
-    <article class="review-card reveal-child">
-      <div class="review-stars" aria-label="5 stelle su 5">★★★★★</div>
-      <blockquote>Atmosfera intima, personale gentilissimo. Il kitfo semicrudo è un viaggio nei sapori. Ci torno ogni volta che sono a Milano.</blockquote>
-      <footer>
-        <div class="reviewer">Sofia B.</div>
-        <div class="platform">Google</div>
-      </footer>
-    </article>
-    <article class="review-card reveal-child">
-      <div class="review-stars" aria-label="5 stelle su 5">★★★★★</div>
-      <blockquote>La cerimonia del caffè finale è imperdibile. Quaranta minuti di magia. Prenotate con anticipo perché il posto è piccolo ma vale ogni attesa.</blockquote>
-      <footer>
-        <div class="reviewer">Ahmed K.</div>
-        <div class="platform">TripAdvisor</div>
-      </footer>
-    </article>
-  </div>
-</section>
-
-<!-- ===================== VISITA ===================== -->
-<section class="visit" id="visita">
-  <div class="visit-grid">
-    <div class="visit-text reveal" id="prenota">
-      <div class="eyebrow reveal-child">Visitaci</div>
-      <h2 class="reveal-child">Ti aspettiamo a Porta Venezia.</h2>
-      <p class="lead reveal-child">A due passi dalla metro, nel quartiere più cosmopolita di Milano. Prenota un tavolo per cena o passa per il pranzo — la sala è piccola, meglio avvisarci.</p>
-
-      <ul class="visit-list reveal-child">
-        <li>
-          <div class="icon" aria-hidden="true">⌖</div>
-          <div>
-            <div class="label">Indirizzo</div>
-            <div class="val">Via Panfilo Castaldi, 19</div>
-            <div class="sub">20124 Milano — a 200 m da Porta Venezia</div>
+      <!-- CATEGORIA: Colazione -->
+      <div class="menu-category reveal" id="cat-colazione">
+        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Colazione</div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">COLAZIONE</h2>
+        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Full</h3><p style="font-size:14px; color:var(--charcoal-soft)">Crema di fave con pomodoro, cipolla e prezzemolo.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">8€</span></div>
           </div>
-        </li>
-        <li>
-          <div class="icon" aria-hidden="true">⏱</div>
-          <div>
-            <div class="label">Orari</div>
-            <div class="val">10:00–15:00 · 18:30–23:00</div>
-            <div class="sub">Mar–Dom · Lunedì chiuso</div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Frittata Al Sicomoro</h3><p style="font-size:14px; color:var(--charcoal-soft)">Frittata con uovo, cipolla e pomodoro — piccante o non piccante.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">10€</span></div>
           </div>
-        </li>
-        <li>
-          <div class="icon" aria-hidden="true">☎</div>
-          <div>
-            <div class="label">Prenotazioni</div>
-            <div class="val"><a href="tel:+39022563527">02 2563527</a></div>
-            <div class="sub"><a href="https://wa.me/393514313058" target="_blank" rel="noopener">Anche WhatsApp</a> · 351 431 3058</div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Omelette</h3><p style="font-size:14px; color:var(--charcoal-soft)">Uova soffici con prezzemolo o miele.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">12€</span></div>
           </div>
-        </li>
-      </ul>
-
-      <div class="visit-cta reveal-child">
-        <a href="https://www.thefork.it/ristorante/ristorante-al-sicomoro-r860688" class="btn" target="_blank" rel="noopener">Prenota su TheFork <span class="arrow" aria-hidden="true">→</span></a>
-        <a href="tel:+39022563527" class="btn ghost">Chiama ora</a>
+          <div class="menu-item" style="padding:18px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Kitcha Fit-Fit</h3><p style="font-size:14px; color:var(--charcoal-soft)">Piadina spezzettata condita a scelta: classica, miele, spriss rosso o bianco, burro — con yogurt.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">13€</span><br><span style="font-size:11px; color:var(--charcoal-soft); font-style:italic">con yogurt</span></div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="map-card reveal">
-      <iframe src="https://www.google.com/maps?q=Ristorante+Al+Sicomoro+Via+Panfilo+Castaldi+19+Milano&hl=it&z=16&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa del ristorante Al Sicomoro"></iframe>
-      <div class="map-overlay">
-        <div class="place">Al Sicomoro</div>
-        <div class="addr">Via Panfilo Castaldi 19, Milano</div>
-        <div class="metro">M1 · Porta Venezia · 3 min</div>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Panfilo+Castaldi+19+Milano" target="_blank" rel="noopener" class="directions">Apri indicazioni →</a>
+      <!-- CATEGORIA: Antipasti -->
+      <div class="menu-category reveal" style="margin-top:48px" id="cat-antipasti">
+        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Antipasti</div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">ANTIPASTI TRADIZIONALI</h2>
+        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Categna</h3><p style="font-size:14px; color:var(--charcoal-soft)">Injera tostata al momento: con burro chiarificato e berberè, con lenticchie.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">3€</span><br><span style="font-size:11px; color:var(--charcoal-soft); font-style:italic">6 pz</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Sambusa di Carne (2 varianti)</h3><p style="font-size:14px; color:var(--charcoal-soft)">Fagottini ripieni con carne macinata di manzo o pollo.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">2€</span><br><span style="font-size:11px; color:var(--charcoal-soft); font-style:italic">1 pz</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Sambusa di Verdura</h3><p style="font-size:14px; color:var(--charcoal-soft)">Fagottini vegetariani con lenticchie o coste.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">1,50€</span><br><span style="font-size:11px; color:var(--charcoal-soft); font-style:italic">1 pz</span></div>
+          </div>
+        </div>
       </div>
+
+      <!-- CATEGORIA: Carne -->
+      <div class="menu-category reveal" style="margin-top:48px" id="cat-carne">
+        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Carne</div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">PIATTI DI CARNE</h2>
+        <div class="menu-notice" style="background:#FEF7E8; border-left:4px solid var(--ochre); padding:20px; margin-bottom:24px; border-radius:6px; font-size:14px; line-height:1.7; color:var(--charcoal-soft)">
+          Ogni piatto è servito con l'injera — il pane del cuore della cucina eritrea ed etiopica. Preparata con farina di teff (un antico cereale africano, naturalmente senza glutine) o con altre farine tradizionali, è soffice, leggermente acidula e piena di vita. Chiedi al personale la versione teff se hai intolleranze.
+        </div>
+        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Zighini di Carne</h3><p style="font-size:14px; color:var(--charcoal-soft)">Spezzatino di manzo o pollo con purè di ceci, lenticchie e insalata.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">17€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Spriss Rosso / Bianco</h3><p style="font-size:14px; color:var(--charcoal-soft)">Bocconcini di manzo con pomodoro e spezie. Rosso: con berberè | Bianco: senza piccante.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">16€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Gored Gored</h3><p style="font-size:14px; color:var(--charcoal-soft)">Bocconcini di manzo con burro chiarificato e spezie. Cotto, crudo o semicrudo.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">18€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Kitfo</h3><p style="font-size:14px; color:var(--charcoal-soft)">Manzo tritato fine con burro chiarificato e mitmita. Cotto, crudo o semicrudo.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">20€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Zhil Zhil</h3><p style="font-size:14px; color:var(--charcoal-soft)">Striscioline di manzo saltate con cipolla, peperoni e spezie.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">20€</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORIA: Vegetariano -->
+      <div class="menu-category reveal" style="margin-top:48px" id="cat-vegetariano">
+        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Vegetariano / Vegano</div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">VEGETARIANO / VEGANO</h2>
+        <div class="menu-notice" style="background:#FEF7E8; border-left:4px solid var(--ochre); padding:20px; margin-bottom:24px; border-radius:6px; font-size:14px; line-height:1.7; color:var(--charcoal-soft)">
+          Ogni piatto è servito con l'injera fatta in casa. La nostra cucina vegetariana e vegana è ricca di legumi, verdure speziate e sapori autentici — naturalmente senza compromessi.
+        </div>
+        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Zighini Vegetariano</h3><p style="font-size:14px; color:var(--charcoal-soft)">Lenticchie rosse e gialle, insalata, shiro (crema di ceci), hamli (coste), alicia (cavolo, fagioli e patate), rapa con carote.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">16€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Fir Fir con Uova</h3><p style="font-size:14px; color:var(--charcoal-soft)">Injera saltata in padella con pomodoro, cipolla e berberè.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">18€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Fir Fir Vegetariano</h3><p style="font-size:14px; color:var(--charcoal-soft)">Come il Fir Fir, nella versione senza uova.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">15€</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORIA: Dolci -->
+      <div class="menu-category reveal" style="margin-top:48px" id="cat-dolci">
+        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Dolci</div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">DOLCI FATTI IN CASA</h2>
+        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Dolce del giorno</h3><p style="font-size:14px; color:var(--charcoal-soft)">Preparazione casalinga che cambia ogni giorno.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">6€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:22px; margin-bottom:6px">Macedonia di frutta</h3><p style="font-size:14px; color:var(--charcoal-soft)">Frutta fresca di stagione.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:22px; color:var(--ochre)">5€</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORIA: Bevande -->
+      <div class="menu-category reveal" style="margin-top:48px" id="cat-bevande">
+        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Bevande</div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:40px">BEVANDE</h2>
+        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
+          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Acqua 0,75cl</h3></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">3,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Bibite in vetro</h3></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">3,50€</span></div>
+          </div>
+          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Birra 33cl</h3></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">4,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Birra 66cl</h3></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">7,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Birra Eritrea / Etiope</h3><p style="font-size:13px; color:var(--charcoal-soft); margin:0">Birra tipica</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">5,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Birra Analcolica</h3></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">4,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Amari</h3></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">4,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Caffè</h3></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">2,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Tè</h3></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">2,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:12px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Vino — calice</h3></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">4,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:12px 0; display:flex; justify-content:space-between; align-items:center; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:2px">Vino — mezzo litro</h3></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">9,00€</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORIA: Vini -->
+      <div class="menu-category reveal" style="margin-top:48px" id="cat-vini">
+        <div class="eyebrow reveal-child" style="margin-bottom:16px; text-align:center">Vini</div>
+        <h2 class="reveal-child" style="text-align:center; margin-bottom:12px">VINI DEL SUDAFRICA · 0,75 lt</h2>
+        <p style="text-align:center; font-style:italic; color:var(--charcoal-soft); margin-bottom:40px">Una selezione di vini dal Sudafrica — un continente, tanti terroir, una storia nel bicchiere.</p>
+        <div class="menu-items" style="background:#fff; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.08); padding:32px">
+
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">Shiraz 2023 · Cape Dreams</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Robertson. Violette, frutta caramellata, spezie e sentori fumosi. Finale lunghissimo.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">18,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">Signature Pinotage 2023 · Spier</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape. Ciliegie mature, prugne succose e cannella. Tannini morbidi e setosi.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">21,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">221 Special Cuvée 2022 · Alvi's Drift</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Worcester. Blend premiato: prugne mature, spezie e liquirizia. Corposo, grande persistenza.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">26,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">Shiraz 2023 · Diemersdal</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Cape Town. 12 mesi in barrique. Pepe, melograno, cioccolato fondente. Finale lungo e speziato.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">35,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">Chenin Blanc 2025 · Cape Dreams</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Robertson. Ananas, pesca, pere, agrumi. Fresco, bilanciato, fine.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">18,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">Signature Sauvignon Blanc 2025 · Spier</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape. Uva spina, frutto della passione, peperoni verdi e frutta tropicale.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">21,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">Chenin Blanc 2024 · Alvi's Drift</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape. Pesche bianche, nettarine, acidità elegante. Corpo pieno e strutturato.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">26,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">Unwooded Chardonnay 2025 · Diemersdal</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Cape Town. Mela, melone, lime. Cremoso e persistente.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">28,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">Brut Cuvée · Finch Mountain</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape Sauvignon Blanc metodo Charmat. Vivace, fresco, erbe secche e agrumi.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">18,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">Borealis Cuvée Brut 2024 · Krone</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape Chardonnay + Pinot Noir, 12 mesi sui lieviti. Ananas, lime, crosta di pane.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">33,00€</span></div>
+          </div>
+          <div class="menu-item" style="padding:18px 0;  display:flex; justify-content:space-between; align-items:flex-start; gap:20px">
+            <div><h3 style="font-size:20px; margin-bottom:4px">Rosé Cuvée Brut 2023 · Krone</h3><p style="font-size:13px; color:var(--charcoal-soft); line-height:1.5">Western Cape. Pinot Noir + Chardonnay, 12 mesi sui lieviti. Melograno, frutti di bosco, secco ed elegante.</p></div>
+            <div style="text-align:right; white-space:nowrap"><span style="font-family:var(--serif); font-size:20px; color:var(--ochre)">33,00€</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin:48px 0 0">
+        <p style="font-size:14px; color:var(--charcoal-soft); margin-bottom:8px">Scarica il menu completo in PDF</p>
+        <a href="Menu_9.pdf" class="btn ghost" target="_blank" rel="noopener">Scarica PDF <span class="arrow" aria-hidden="true">↓</span></a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1509,7 +1474,7 @@ footer{
         <h4>Naviga</h4>
         <ul>
           <li><a href="chi-siamo.html">La storia</a></li>
-          <li><a href="menu.html">Menu</a></li>
+          <li><a href="menu.html" aria-current="page">Menu</a></li>
           <li><a href="galleria.html">Galleria</a></li>
           <li><a href="contatti.html">Contatti</a></li>
         </ul>
@@ -1545,7 +1510,6 @@ footer{
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   <span class="tooltip">Prenota su WhatsApp</span>
 </a>
-
 <!-- ===================== MOBILE STICKY CTA ===================== -->
 <div class="mobile-cta" aria-label="Azioni rapide">
   <a href="tel:+39022563527" class="call">Chiama</a>
