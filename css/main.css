@@ -1079,3 +1079,99 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 @media (prefers-reduced-motion: reduce){
   .reveal, .reveal-child{opacity:1; transform:none; transition:none}
 }
+
+/* ============================================================
+   17. FULL MENU PAGE — two-column structure
+   ============================================================ */
+.menu-section .menu-notice{
+  background:#FEF7E8;
+  border-left:4px solid var(--ochre);
+  color:var(--charcoal-soft);
+  margin-bottom:20px;
+  padding:16px 20px;
+  border-radius:6px;
+  font-size:13px; line-height:1.7;
+}
+
+/* Ornamental category divider */
+.cat-ornament{
+  display:flex; align-items:center; justify-content:center;
+  gap:10px; margin:8px 0 28px;
+}
+.cat-ornament-line{
+  width:50px; height:1px; flex-shrink:0;
+}
+.cat-ornament-line.left{ background:linear-gradient(to right, transparent, var(--terracotta)) }
+.cat-ornament-line.right{ background:linear-gradient(to left, transparent, var(--terracotta)) }
+.cat-ornament-sym{
+  font-family:var(--serif);
+  letter-spacing:0.2em; color:var(--terracotta);
+  font-size:12px; opacity:.8;
+}
+
+/* Two-column dish grid */
+.mdgrid{
+  display:grid;
+  grid-template-columns:1fr;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+}
+@media(min-width:680px){
+  .mdgrid{ grid-template-columns:1fr 1fr }
+  .mdgrid .mdish:nth-child(odd){ border-right:1px solid var(--line) }
+  .mdgrid .mdish:nth-last-child(-n+2){ border-bottom:0 }
+  .mdgrid .mdish:last-child:nth-child(odd){ grid-column:1/-1 }
+}
+@media(max-width:679px){
+  .mdgrid .mdish:last-child{ border-bottom:0 }
+}
+
+.mdish{
+  display:flex; align-items:flex-start;
+  gap:14px; padding:18px 24px;
+  border-bottom:1px solid var(--line);
+  transition:background .2s;
+}
+.mdish:hover{ background:var(--cream-soft) }
+
+.mdish-marker{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--terracotta); opacity:.7;
+  margin-top:9px; flex-shrink:0;
+}
+
+.mdish-body{ flex:1; min-width:0 }
+
+.mdish-row{
+  display:flex; align-items:baseline;
+  gap:6px; margin-bottom:5px;
+}
+.mdish-name{
+  font-family:var(--serif);
+  font-size:clamp(16px,1.5vw,18px);
+  color:var(--ink); line-height:1.2;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  flex-shrink:1; min-width:0;
+}
+.mdish-dots{
+  flex:1; min-width:12px;
+  border-bottom:2px dotted rgba(31,26,20,.18);
+  margin-bottom:3px; flex-shrink:1;
+}
+.mdish-price{
+  font-family:var(--serif);
+  font-size:clamp(16px,1.5vw,18px);
+  color:var(--terracotta); white-space:nowrap; flex-shrink:0;
+}
+.mdish-note{
+  display:block; font-size:10px; font-style:italic;
+  color:var(--charcoal-soft);
+  margin-top:1px; margin-bottom:4px;
+}
+.mdish-desc{
+  font-size:13px; line-height:1.6;
+  color:var(--charcoal-soft);
+}

@@ -74,7 +74,6 @@
     'Prenotazione TheFork': 'TheFork Booking',
     'Eventi privati': 'Private events',
     'Cerimonia del caffè': 'Coffee ceremony',
-    'Asporto / Delivery': 'Takeaway / Delivery',
     '© 2026 Al Sicomoro · P.IVA 14497570961 · Tutti i diritti riservati': '© 2026 Al Sicomoro · P.IVA 14497570961 · All rights reserved',
     'Chiama': 'Call',
     'Prenota': 'Book',
