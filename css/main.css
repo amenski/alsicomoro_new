@@ -20,6 +20,7 @@
 
   /* mobile-first nav height for scroll offset */
   --nav-h: 72px;
+  --topbar-h: 41px;
 }
 
 /* ============================================================
@@ -30,8 +31,9 @@
   outline:2px solid var(--terracotta);
   outline-offset:3px;
 }
-html{scroll-behavior:smooth; scroll-padding-top:calc(var(--nav-h) + 16px)}
+html{scroll-behavior:smooth; scroll-padding-top:calc(var(--topbar-h) + var(--nav-h) + 16px)}
 body{
+  padding-top:calc(var(--topbar-h) + var(--nav-h));
   font-family:var(--sans);
   font-weight:400;
   color:var(--charcoal);
@@ -80,6 +82,8 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
    4. TOP BAR (hidden on small mobile to save space)
    ============================================================ */
 .topbar{
+  position:fixed; top:0; left:0; right:0; z-index:101;
+  height:var(--topbar-h);
   background:var(--charcoal);
   color:var(--cream);
   font-size:12px;
@@ -118,7 +122,7 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
    5. NAVIGATION (mobile-first, slide-in drawer)
    ============================================================ */
 .nav{
-  position:sticky; top:0; z-index:100;
+  position:fixed; top:var(--topbar-h); left:0; right:0; z-index:100;
   background:rgba(250,245,232,0.95);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
@@ -228,6 +232,8 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
     display:flex;
     flex-direction:column;
     position:fixed;
+    /* .nav has backdrop-filter → it is the containing block for this
+       fixed drawer, so top is measured from the nav box, not the viewport */
     top:var(--nav-h);
     left:0; right:0;
     background:var(--cream-soft);
@@ -239,7 +245,7 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
     transform:translateY(-110%);
     transition:transform .35s cubic-bezier(.4,0,.2,1);
     visibility:hidden;
-    max-height:calc(100vh - var(--nav-h));
+    max-height:calc(100vh - var(--topbar-h) - var(--nav-h));
     overflow-y:auto;
   }
   .nav.open .nav-links{
@@ -278,7 +284,7 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
    ============================================================ */
 .hero{
   position:relative;
-  height:calc(100svh - var(--nav-h));
+  height:calc(100svh - var(--topbar-h) - var(--nav-h));
   min-height:560px;
   max-height:880px;
   overflow:hidden;
