@@ -1,6 +1,6 @@
 (function(){
   var EN = {
-    'Aperto · Mar–Dom 10:00–15:00 · 18:30–23:00': 'Open · Tue–Sun 10:00–15:00 · 18:30–23:00',
+    'Aperto · Mar–Dom 12:00–15:00 · 18:30–23:00': 'Open · Tue–Sun 12:00–15:00 · 18:30–23:00',
     'Chi Siamo': 'About',
     'Galleria': 'Gallery',
     'Contatti': 'Contact',
