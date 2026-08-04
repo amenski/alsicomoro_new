@@ -54,6 +54,20 @@ To serve the branded 404 page (`404.html` / `en/404.html`) on unknown URLs:
     error_page 404 /404.html;
 ```
 
+### Legacy Squarespace redirects
+
+`nginx-redirects.conf` (repo root) holds exact-match 301 redirects for old
+Squarespace URLs (`/about`, `/menu`, `/gallery`, `/contact`) that still rank
+in Google but 404 on the current site. Include it inside the `server { }`
+block:
+
+```nginx
+    include /path/to/nginx-redirects.conf;
+```
+
+This is a **config change**, so nginx must be reloaded for it to take effect
+(see Deploy steps below): `sudo nginx -t && sudo systemctl reload nginx`.
+
 ## Deploy steps
 
 1. Copy the changed files to the nginx web root.
