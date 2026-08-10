@@ -67,8 +67,9 @@
 
   function inject(el, url, fallback, after) {
     if (!el) { if (after) after(); return; }
-    // Header/footer are inlined into the pages at build time (inline-partials.py).
-    // Only fetch the partial when the placeholder is still empty (no-JS fallback path).
+    // Header/footer are inlined directly into each page (hand-maintained —
+    // edit every page, not partials/, which is now only a reference copy).
+    // Only fetch the partial when the placeholder is still empty.
     if (el.children.length > 0) { if (after) after(); return; }
     fetch(url)
       .then(function(r) { return r.ok ? r.text() : Promise.reject(); })
