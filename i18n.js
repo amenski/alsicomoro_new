@@ -1,6 +1,7 @@
 (function(){
   var EN = {
     'Aperto · Mar–Dom 12:00–15:00 · 18:30–23:00': 'Open · Tue–Sun 12:00–15:00 · 18:30–23:00',
+    'Chiusi per ferie dal 10 al 24 agosto · Riapriamo martedì 25': 'Closed for summer holidays 10–24 August · We reopen Tuesday 25',
     'Chi Siamo': 'About',
     'Galleria': 'Gallery',
     'Contatti': 'Contact',

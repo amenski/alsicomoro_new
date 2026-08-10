@@ -33,6 +33,26 @@
     });
   }
 
+  // Holiday closure: show the banner only while the closure is running.
+  // Local-date comparison (not UTC) so it flips at midnight in Milan, and
+  // the whole block can be deleted once the closure is past.
+  var FERIE_LAST_DAY = '2026-08-24'; // inclusive; reopening Tue 2026-08-25
+
+  function initFerieBanner() {
+    var banner = document.getElementById('ferieBanner');
+    if (!banner) return;
+    var now = new Date();
+    var today = now.getFullYear() + '-' +
+      String(now.getMonth() + 1).padStart(2, '0') + '-' +
+      String(now.getDate()).padStart(2, '0');
+    if (today <= FERIE_LAST_DAY) {
+      banner.hidden = false;
+      document.documentElement.classList.add('has-ferie');
+    } else {
+      banner.parentNode.removeChild(banner);
+    }
+  }
+
   function fallbackHeader() {
     return '<div class="topbar"><div class="left">Al Sicomoro</div>' +
       '<div class="right"><a href="tel:+39022563527">02 2563527</a> · ' +
@@ -57,6 +77,7 @@
   inject(headerEl, 'partials/header.html', fallbackHeader, function() {
     markActive(headerEl, page);
     initNavDrawer();
+    initFerieBanner();
     if (window.__alsicomoroI18nRescan) window.__alsicomoroI18nRescan();
   });
 
