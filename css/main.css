@@ -30,6 +30,7 @@ html.has-ferie{ --ferie-h: 38px }
 .ferie-banner{
   position:fixed; top:0; left:0; right:0; z-index:102;
   height:var(--ferie-h);
+  overflow:hidden; /* belt-and-braces: never spill over the topbar */
   background:var(--terracotta);
   color:var(--cream);
   font-size:12.5px;
@@ -44,6 +45,11 @@ html.has-ferie{ --ferie-h: 38px }
 @media(max-width:560px){
   html.has-ferie{ --ferie-h: 34px }
   .ferie-banner{font-size:11px; padding:7px 12px}
+}
+/* very narrow (iPhone SE and similar): the text wraps to two lines */
+@media(max-width:379px){
+  html.has-ferie{ --ferie-h: 50px }
+  .ferie-banner{padding:6px 10px; line-height:1.35}
 }
 
 /* ============================================================
