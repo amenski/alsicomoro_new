@@ -94,8 +94,8 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
   font-weight:300;
   letter-spacing:0.02em;
 }
-.topbar a{opacity:.85; transition:opacity .2s}
-.topbar a:hover, .topbar a:focus-visible{opacity:1}
+.topbar a:where(:not(.lang-toggle)){opacity:.85; transition:opacity .2s}
+.topbar a:where(:not(.lang-toggle)):hover, .topbar a:where(:not(.lang-toggle)):focus-visible{opacity:1}
 .topbar .right{display:flex; gap:18px; align-items:center}
 .topbar .dot{
   width:6px; height:6px; background:var(--ochre); border-radius:50%;
@@ -110,6 +110,8 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
   .topbar .right{gap:14px}
 }
 .lang-toggle{
+  /* was a <button>: keep its box and stay out of the generic link rules */
+  display:inline-block; line-height:normal; text-align:center;
   color:var(--cream); font-size:12px; font-weight:500;
   letter-spacing:0.06em; cursor:pointer;
   padding:4px 8px; border-radius:4px;
@@ -165,7 +167,7 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
 @media(max-width:1100px){
   .nav-links{gap:20px}
 }
-.nav-links a:not(.btn){
+.nav-links a:not(.btn, .lang-toggle){
   font-size:14px;
   font-weight:500;
   letter-spacing:0.04em;
@@ -173,17 +175,17 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
   padding:6px 0;
   transition:color .2s;
 }
-.nav-links a:not(.btn)::after{
+.nav-links a:not(.btn, .lang-toggle)::after{
   content:''; position:absolute; left:0; bottom:0;
   width:0; height:1px; background:var(--terracotta);
   transition:width .3s ease;
 }
-.nav-links a:not(.btn):hover,
-.nav-links a:not(.btn):focus-visible{color:var(--terracotta)}
-.nav-links a:not(.btn):hover::after,
-.nav-links a:not(.btn):focus-visible::after,
-.nav-links a:not(.btn)[aria-current="page"]::after{width:100%}
-.nav-links a:not(.btn)[aria-current="page"]{color:var(--terracotta)}
+.nav-links a:not(.btn, .lang-toggle):hover,
+.nav-links a:not(.btn, .lang-toggle):focus-visible{color:var(--terracotta)}
+.nav-links a:not(.btn, .lang-toggle):hover::after,
+.nav-links a:not(.btn, .lang-toggle):focus-visible::after,
+.nav-links a:not(.btn, .lang-toggle)[aria-current="page"]::after{width:100%}
+.nav-links a:not(.btn, .lang-toggle)[aria-current="page"]{color:var(--terracotta)}
 
 /* CTA button */
 .btn{
@@ -252,13 +254,13 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
     transform:translateY(0);
     visibility:visible;
   }
-  .nav-links a{
+  .nav-links a:where(:not(.lang-toggle)){
     font-size:22px;
     font-family:var(--serif);
     font-weight:400;
     padding:8px 0;
   }
-  .nav-links a:not(.btn)::after{display:none}
+  .nav-links a:not(.btn, .lang-toggle)::after{display:none}
   .nav-links .btn{
     margin-top:12px;
     font-family:var(--sans);
@@ -1181,3 +1183,50 @@ h3{font-size:clamp(20px, 2.2vw, 28px)}
   font-size:13px; line-height:1.6;
   color:var(--charcoal-soft);
 }
+
+/* ============================================================
+   MOBILE STICKY CTA (was an inline <style> in every footer)
+   ============================================================ */
+.mobile-cta{
+  position:fixed;
+  bottom:0; left:0; right:0;
+  z-index:110;
+  background:var(--ink);
+  padding:12px var(--pad-x);
+  padding-bottom:max(12px, env(safe-area-inset-bottom));
+  display:none;
+  gap:10px;
+  border-top:1px solid rgba(244,236,216,.15);
+  box-shadow:0 -8px 20px -8px rgba(0,0,0,.2);
+}
+.mobile-cta a{
+  flex:1;
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:8px;
+  padding:13px 16px;
+  border-radius:999px;
+  font-size:13px; font-weight:600;
+  letter-spacing:0.06em; text-transform:uppercase;
+  min-height:48px;
+}
+.mobile-cta .call{
+  background:transparent;
+  color:var(--cream);
+  border:1px solid rgba(244,236,216,.3);
+}
+.mobile-cta .book{
+  background:var(--terracotta);
+  color:var(--cream);
+}
+.mobile-cta .book:hover{background:var(--terracotta-deep)}
+.mobile-cta .wa{background:#25D366; color:#fff}
+.mobile-cta .wa:hover{background:#1ebe5d}
+@media(max-width:720px){
+  .mobile-cta{display:flex}
+  body{padding-bottom:80px} /* prevent footer overlap */
+}
+
+/* ============================================================
+   404 PAGE
+   ============================================================ */
+.error-code{font-family:var(--serif);font-size:clamp(72px,18vw,180px);line-height:.9;color:var(--terracotta);margin:0 0 8px}

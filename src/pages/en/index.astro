@@ -1,0 +1,401 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com/en/"}];
+
+---
+
+<BaseLayout
+  lang="en"
+  page="index"
+  title={"Al Sicomoro — Eritrean & Ethiopian Restaurant in Milan Porta Venezia"}
+  description={"Horn of Africa cuisine in the heart of Porta Venezia. Homemade injera, zighini, kitfo, shiro. Via Panfilo Castaldi 19, Milan."}
+  ogDescription={"Horn of Africa cuisine in the heart of Porta Venezia. Homemade injera, zighini, kitfo, shiro."}
+  twitterTitle={"Al Sicomoro — Eritrean & Ethiopian Restaurant in Milan"}
+  twitterDescription={"Horn of Africa cuisine in the heart of Porta Venezia."}
+  ogImage="/images/background.jpg"
+  ogImageAlt={"Al Sicomoro restaurant atmosphere in Porta Venezia, Milan"}
+  ogType="restaurant.restaurant"
+  ogImageSize={{"width":1920,"height":1080}}
+  breadcrumb={breadcrumb}
+>
+
+
+<!-- HERO SLIDER -->
+<section class="hero" aria-label="Main gallery">
+  <div class="slides" id="slides">
+    <div class="slide active" data-caption="Mixed zighini · house specialty">
+      <img class="slide-img" src="/images/background.jpg" alt="Zighini dish served on injera at Al Sicomoro" loading="eager" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #8A3415, #B5471E)'; this.removeAttribute('src');">
+      <div class="slide-caption">01 — Mixed zighini · house specialty</div>
+    </div>
+    <div class="slide" data-caption="Hands that share · eating together">
+      <img class="slide-img" src="/images/zigni-overhead.jpg" alt="Shared table with traditional Eritrean dishes" loading="lazy" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #6B4A2A, #3D2615)'; this.removeAttribute('src');">
+      <div class="slide-caption">02 — Hands that share</div>
+    </div>
+    <div class="slide" data-caption="Atmosphere · dining room">
+      <img class="slide-img" src="/images/tree.jpg" alt="Al Sicomoro restaurant interior" loading="lazy" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #2A3018, #1F1A14)'; this.removeAttribute('src');">
+      <div class="slide-caption">03 — The dining room</div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="eyebrow">Horn of Africa Cuisine</div>
+    <h1>Under the <em>sycamore</em>, tradition speaks.</h1>
+    <p class="lead">An Eritrean and Ethiopian restaurant in the heart of Porta Venezia. Homemade injera, freshly ground spices, recipes passed down through generations.</p>
+    <div class="hero-cta">
+      <a href="/en/contatti.html" class="btn">Reserve a table <span class="arrow" aria-hidden="true">→</span></a>
+      <a href="#menu" class="btn ghost">Discover the menu</a>
+    </div>
+  </div>
+
+  <div class="hero-stats" aria-label="Recognition">
+    <div class="stat"><div class="num">9.7</div><div class="label">TheFork</div></div>
+    <div class="stat"><div class="num">10+</div><div class="label">Dishes</div></div>
+  </div>
+
+  <button class="slider-arrow slider-prev" aria-label="Previous slide" id="sliderPrev">‹</button>
+  <button class="slider-arrow slider-next" aria-label="Next slide" id="sliderNext">›</button>
+  <div class="slider-dots" role="tablist" aria-label="Select slide">
+    <button class="slider-dot active" data-slide="0" aria-label="Slide 1" aria-selected="true"></button>
+    <button class="slider-dot" data-slide="1" aria-label="Slide 2" aria-selected="false"></button>
+    <button class="slider-dot" data-slide="2" aria-label="Slide 3" aria-selected="false"></button>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>
+      Injera <span class="sep">✦</span> Zighini <span class="sep">✦</span> Kitfo <span class="sep">✦</span> Shiro <span class="sep">✦</span> Tibs <span class="sep">✦</span> Berbere <span class="sep">✦</span>
+    </span>
+    <span>
+      Injera <span class="sep">✦</span> Zighini <span class="sep">✦</span> Kitfo <span class="sep">✦</span> Shiro <span class="sep">✦</span> Tibs <span class="sep">✦</span> Berbere <span class="sep">✦</span>
+    </span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="section" id="storia">
+  <div class="story-grid">
+    <div class="story-image reveal">
+      <img src="/images/tree.jpg" alt="Al Sicomoro restaurant kitchen" loading="lazy" width="1000" height="1250" onerror="this.style.opacity='0'">
+      <span class="badge">Our story</span>
+      <div class="label">"The sycamore is a tree that grows where the land remembers."</div>
+    </div>
+    <div class="story-text reveal">
+      <div class="eyebrow reveal-child">About us</div>
+      <h2 class="reveal-child">A table that bridges two shores.</h2>
+      <p class="reveal-child">Al Sicomoro was born from the meeting of two cultures and one shared idea of hospitality: the warmth of a shared table, the slow rhythm of spices, the comfort of injera arriving at the centre like a map of flavours.</p>
+      <p class="reveal-child">Every morning we prepare injera by tradition, letting the teff dough ferment for days. The meats are marinated in our house berbere — a blend of over twelve spices toasted and ground by us.</p>
+      <blockquote class="story-quote reveal-child">
+        "Eating with your hands is not folklore. It is a way of remembering that food passes through the heart first."
+        <cite>— Al Sicomoro family</cite>
+      </blockquote>
+      <a href="#esperienza" class="btn ghost reveal-child">The table experience →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="inner">
+    <div class="menu-head reveal">
+      <div class="eyebrow reveal-child" style="margin-bottom:16px">The menu</div>
+      <h2 class="reveal-child">Dishes that tell stories.</h2>
+    </div>
+
+    <div class="menu-tabs reveal" role="tablist" aria-label="Filter menu">
+      <a href="/Menu_9.pdf" class="menu-tab" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;text-decoration:none">Download PDF <span aria-hidden="true">↓</span></a>
+      <button class="menu-tab active" data-filter="tutti" role="tab" aria-selected="true">All</button>
+      <button class="menu-tab" data-filter="carne" role="tab" aria-selected="false">Meat</button>
+      <button class="menu-tab" data-filter="vegetariano" role="tab" aria-selected="false">Vegetarian</button>
+      <button class="menu-tab" data-filter="antipasti" role="tab" aria-selected="false">Starters</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+      <article class="dish reveal" data-category="carne">
+        <div class="dish-img">
+          <img src="/images/zigni-overhead.jpg" alt="Meat zighini" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+        </div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Meat Zighini</h3>
+            <span class="dish-dots"></span>
+            <span class="price">€17</span>
+          </div>
+          <p class="desc">Beef or chicken stew slow-cooked in our house berbere, served on injera with chickpea purée, lentils and salad.</p>
+        </div>
+      </article>
+
+      <article class="dish reveal" data-category="carne">
+        <div class="dish-img">
+          <img src="/images/kitfo.jpg" alt="Kitfo" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+        </div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Kitfo</h3>
+            <span class="dish-tag">Specialty</span>
+            <span class="dish-dots"></span>
+            <span class="price">€18</span>
+          </div>
+          <p class="desc">Finely minced beef dressed with clarified butter and mitmita. Available cooked, raw or rare to tradition.</p>
+        </div>
+      </article>
+
+      <article class="dish reveal" data-category="antipasti">
+        <div class="dish-img">
+          <img src="/images/sambusa-di-carne.jpg" alt="Meat sambusa" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+        </div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Meat Sambusa</h3>
+            <span class="dish-tag">Starter</span>
+            <span class="dish-dots"></span>
+            <span class="price">€3</span>
+          </div>
+          <p class="desc">Crispy parcels filled with minced beef or chicken, fried to order. Two varieties to choose from.</p>
+        </div>
+      </article>
+
+      <article class="dish reveal" data-category="vegano vegetariano">
+        <div class="dish-img">
+          <img src="/images/vegan.jpg" alt="Vegetarian zighini" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+        </div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Vegetarian Zighini</h3>
+            <span class="dish-tag vegan">Vegan</span>
+            <span class="dish-dots"></span>
+            <span class="price">€16</span>
+          </div>
+          <p class="desc">Red and yellow lentils, shiro (chickpea cream), hamli (chard), alicia (cabbage, beans and potatoes), turnip with carrots and salad. Served on injera.</p>
+        </div>
+      </article>
+
+      <article class="dish reveal" data-category="carne">
+        <div class="dish-img">
+          <img src="/images/gored_gored.jpeg" alt="Gored Gored" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+        </div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Gored Gored</h3>
+            <span class="dish-dots"></span>
+            <span class="price">€18</span>
+          </div>
+          <p class="desc">Beef chunks with clarified butter and spices. Cooked, raw or rare.</p>
+        </div>
+      </article>
+
+      <article class="dish reveal" data-category="vegano vegetariano">
+        <div class="dish-img">
+          <img src="/images/firfir.jpg" alt="Vegetarian fir fir" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+        </div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Vegetarian Fir Fir</h3>
+            <span class="dish-tag vegan">Vegan</span>
+            <span class="dish-dots"></span>
+            <span class="price">€15</span>
+          </div>
+          <p class="desc">Injera pan-tossed with tomato, onion and berbere, in the egg-free version.</p>
+        </div>
+      </article>
+
+      <article class="dish reveal" data-category="carne">
+        <div class="dish-img">
+          <img src="/images/zigni-overhead.jpg" alt="Spriss red and white" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+        </div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Spriss Red / White</h3>
+            <span class="dish-dots"></span>
+            <span class="price">€16</span>
+          </div>
+          <p class="desc">Beef morsels with tomato and spices. Red: with berbere | White: not spicy.</p>
+        </div>
+      </article>
+
+      <article class="dish reveal" data-category="antipasti">
+        <div class="dish-img">
+          <img src="/images/zigni-overhead.jpg" alt="Categna" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+        </div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Categna</h3>
+            <span class="dish-dots"></span>
+            <span class="price">€3</span>
+          </div>
+          <p class="desc">Freshly toasted injera: with clarified butter and berbere, or with lentils.</p>
+        </div>
+      </article>
+
+      <article class="dish reveal" data-category="antipasti">
+        <div class="dish-img">
+          <img src="/images/sambusa-di-carne.jpg" alt="Vegetable sambusa" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+        </div>
+        <div class="dish-body">
+          <div class="dish-row">
+            <h3>Vegetable Sambusa</h3>
+            <span class="dish-tag vegan">Vegetarian</span>
+            <span class="dish-dots"></span>
+            <span class="price">€1,50</span>
+          </div>
+          <p class="desc">Vegetarian parcels filled with lentils or chard.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="menu-empty" id="menuEmpty">No dishes in this category.</div>
+
+    <div style="text-align:center; margin-top:40px">
+      <a href="/en/menu.html" class="btn ghost">See the full menu <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="exp" id="esperienza">
+  <div class="exp-inner">
+    <div class="eyebrow reveal">The table experience</div>
+    <h2 class="reveal">Four things that make us <em>different</em>.</h2>
+    <div class="exp-grid reveal">
+      <div class="exp-item reveal-child">
+        <span class="num">— 01</span>
+        <h3>Homemade injera</h3>
+        <p>Three days of natural teff fermentation. No industrial flour, no shortcuts. Every morning we start from scratch.</p>
+      </div>
+      <div class="exp-item reveal-child">
+        <span class="num">— 02</span>
+        <h3>House berbere</h3>
+        <p>Twelve spices toasted and ground by us. It is the signature of every dish and cannot be found in any other kitchen in Milan.</p>
+      </div>
+      <div class="exp-item reveal-child">
+        <span class="num">— 03</span>
+        <h3>Always shared.</h3>
+        <p>One large plate in the centre of the table, eaten with hands. Cooking is gesture, story, memory. Never just food.</p>
+      </div>
+      <div class="exp-item reveal-child">
+        <span class="num">— 04</span>
+        <h3>Coffee ceremony</h3>
+        <p>After the meal, on request, the Ethiopian coffee ceremony. Beans roasted at the table, incense, three cups. Forty minutes of shared silence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews reveal">
+  <div class="reviews-head">
+    <div class="eyebrow reveal-child">What they say</div>
+    <h2 class="reveal-child">Those who came, came back.</h2>
+  </div>
+  <div class="reviews-grid">
+    <article class="review-card reveal-child">
+      <div class="review-stars" aria-label="5 stars out of 5">★★★★★</div>
+      <blockquote>What an amazing experience. Food is delicious, the staff is lovely and a very beautiful venue as well. One of the best and most authentic African meals I've had outside of Africa.</blockquote>
+      <footer>
+        <div class="reviewer">Lucio Ferrantini</div>
+        <div class="platform">Google · Local Guide</div>
+      </footer>
+    </article>
+    <article class="review-card reveal-child">
+      <div class="review-stars" aria-label="5 stars out of 5">★★★★★</div>
+      <blockquote>From the very first bite, I was transported straight back home. The flavors are deeply authentic, rich, and comforting — exactly like a home cooked meal prepared with love. An absolute must.</blockquote>
+      <footer>
+        <div class="reviewer">Esayas</div>
+        <div class="platform">Google</div>
+      </footer>
+    </article>
+    <article class="review-card reveal-child">
+      <div class="review-stars" aria-label="5 stars out of 5">★★★★★</div>
+      <blockquote>An incredible surprise. Spicy meat stew, lentil stew, cubed beef and other vegetables perfectly spiced on a dish meant to be shared. Zaid is welcoming and Giulia an absolute delight. An absolute gem.</blockquote>
+      <footer>
+        <div class="reviewer">Rachel Turner</div>
+        <div class="platform">Google</div>
+      </footer>
+    </article>
+    <article class="review-card reveal-child">
+      <div class="review-stars" aria-label="5 stars out of 5">★★★★★</div>
+      <blockquote>Excellent experience — food and service with kindness. If you're a local you'll be a regular, if you're a tourist it's a must try. Try the South African wine selection — you will not be disappointed.</blockquote>
+      <footer>
+        <div class="reviewer">Alan</div>
+        <div class="platform">Google · Local Guide</div>
+      </footer>
+    </article>
+    <article class="review-card reveal-child">
+      <div class="review-stars" aria-label="10 out of 10">★★★★★</div>
+      <blockquote>Excellent welcome and very pleasant atmosphere, furnishings and music. Great ethnic cuisine.</blockquote>
+      <footer>
+        <div class="reviewer">Silvia P.</div>
+        <div class="platform">TheFork · 10/10</div>
+      </footer>
+    </article>
+    <article class="review-card reveal-child">
+      <div class="review-stars" aria-label="9.5 out of 10">★★★★★</div>
+      <blockquote>Infinitely kind staff — they'll stuff you with food (especially the mom).</blockquote>
+      <footer>
+        <div class="reviewer">Joi C.</div>
+        <div class="platform">TheFork · 9.5/10</div>
+      </footer>
+    </article>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visita">
+  <div class="visit-grid">
+    <div class="visit-text reveal" id="prenota">
+      <div class="eyebrow reveal-child">Visit us</div>
+      <h2 class="reveal-child">We are waiting for you in Porta Venezia.</h2>
+      <p class="lead reveal-child">Steps from the metro, in Milan's most cosmopolitan neighbourhood. Book a table for dinner or drop by for lunch — the dining room is small, better to let us know.</p>
+
+      <ul class="visit-list reveal-child">
+        <li>
+          <div class="icon" aria-hidden="true">⌖</div>
+          <div>
+            <div class="label">Address</div>
+            <div class="val">Via Panfilo Castaldi, 19</div>
+            <div class="sub">20124 Milan — 200 m from Porta Venezia</div>
+          </div>
+        </li>
+        <li>
+          <div class="icon" aria-hidden="true">⏱</div>
+          <div>
+            <div class="label">Hours</div>
+            <div class="val">12:00–15:00 · 18:30–23:00</div>
+            <div class="sub">Tue–Sun · Monday closed</div>
+          </div>
+        </li>
+        <li>
+          <div class="icon" aria-hidden="true">☎</div>
+          <div>
+            <div class="label">Reservations</div>
+            <div class="val"><a href="tel:+39022563527">02 2563527</a></div>
+            <div class="sub"><a href="https://wa.me/393514313058" target="_blank" rel="noopener">Also WhatsApp</a> · 351 431 3058</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="visit-cta reveal-child">
+        <a href="https://www.thefork.it/ristorante/ristorante-al-sicomoro-r860688" class="btn" target="_blank" rel="noopener">Book on TheFork <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="tel:+39022563527" class="btn ghost">Call now</a>
+      </div>
+    </div>
+
+    <div class="map-card reveal">
+      <iframe src="https://www.google.com/maps?q=Ristorante+Al+Sicomoro+Via+Panfilo+Castaldi+19+Milano&hl=en&z=16&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Al Sicomoro restaurant"></iframe>
+      <div class="map-overlay">
+        <div class="place">Al Sicomoro</div>
+        <div class="addr">Via Panfilo Castaldi 19, Milan</div>
+        <div class="metro">M1 · Porta Venezia · 3 min</div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Panfilo+Castaldi+19+Milano" target="_blank" rel="noopener" class="directions">Get directions →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import '../../scripts/slider';
+  import '../../scripts/menu-filter';
+</script>
+</BaseLayout>

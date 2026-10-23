@@ -1,0 +1,91 @@
+---
+// Top bar + nav. The inlined IT header is the source of truth; strings come from
+// ui[lang] and links from paths. Two fixes vs the old hand-copied markup: Home
+// and the logo point at the current language's home (EN used to point at IT),
+// and aria-current is set at build time instead of by components.js.
+import { site } from '../data/site';
+import { paths, alternatePath, ui, type Lang, type PageKey } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+}
+
+const { lang, page } = Astro.props;
+const t = ui[lang];
+const other: Lang = lang === 'it' ? 'en' : 'it';
+const alternate = alternatePath(page, lang);
+
+const navItems: { key: PageKey; path: string; label: string }[] = [
+  { key: 'index', path: paths.index[lang], label: t.nav.index },
+  { key: 'chi-siamo', path: paths['chi-siamo'][lang], label: t.nav['chi-siamo'] },
+  { key: 'menu', path: paths.menu[lang], label: t.nav.menu },
+  { key: 'galleria', path: paths.galleria[lang], label: t.nav.galleria },
+  { key: 'contatti', path: paths.contatti[lang], label: t.nav.contatti },
+];
+---
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="left">
+    <span
+      ><span class="dot" aria-hidden="true"></span><span>{t.topbarHours}</span></span
+    >
+  </div>
+  <div class="right">
+    <a href={site.phone.href} class="hideMob">{site.phone.display}</a>
+    <a class="lang-toggle hideMob" href={alternate} aria-label={t.langToggleAriaLabel}
+      ><span class:list={[{ 'lang-active': lang === 'it' }]}>IT</span> /
+      <span class:list={[{ 'lang-active': lang === 'en' }]}>EN</span></a
+    >
+    <a href={paths.contatti[lang]}><strong>{t.prenotaShort}</strong></a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav" aria-label={t.navAriaLabel}>
+  <a href={paths.index[lang]} class="brand" aria-label={t.brandAriaLabel}>
+    <img src={site.images.logo} alt="" class="brand-logo" width="44" height="44" />
+    <div class="brand-text">
+      <div class="brand-name">Al Sicomoro</div>
+      <div class="brand-sub">Milano · Porta Venezia</div>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    {
+      navItems.map((item) => (
+        <li>
+          <a
+            href={item.path}
+            data-nav={item.key}
+            aria-current={page === item.key ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <a href={paths.contatti[lang]} class="btn"
+        >{t.navCta} <span class="arrow" aria-hidden="true">→</span></a
+      >
+    </li>
+    <li class="nav-lang-item">
+      <a class="lang-toggle" href={alternate} aria-label={t.langToggleAriaLabel}
+        ><span class:list={[{ 'lang-active': lang === 'it' }]}>IT</span> /
+        <span class:list={[{ 'lang-active': lang === 'en' }]}>EN</span></a
+      >
+    </li>
+  </ul>
+  <button
+    class="menu-toggle"
+    aria-label={t.menuToggleOpen}
+    aria-expanded="false"
+    aria-controls="navLinks"
+    id="menuToggle"
+    data-label-open={t.menuToggleOpen}
+    data-label-close={t.menuToggleClose}
+  >
+    <span></span><span></span><span></span>
+  </button>
+</nav>

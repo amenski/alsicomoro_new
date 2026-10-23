@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+---
+
+<BaseLayout
+  lang="it"
+  page="404"
+  title={"Pagina non trovata | Al Sicomoro"}
+  description={"La pagina che cerchi non esiste. Torna alla home di Al Sicomoro o scopri il nostro menu eritreo ed etiope a Milano Porta Venezia."}
+  ogDescription={"La pagina che cerchi non esiste. Torna alla home o scopri il nostro menu."}
+  twitterTitle={"Pagina non trovata | Al Sicomoro"}
+  twitterDescription={"La pagina che cerchi non esiste. Torna alla home o scopri il nostro menu."}
+  ogImage="/images/tree.jpg"
+  ogImageAlt={"Il sicomoro, simbolo del ristorante Al Sicomoro a Milano"}
+  noindex
+  alternates={[]}
+  schema={false}
+>
+
+
+<!-- ===================== 404 HERO ===================== -->
+<section class="hero" style="min-height:60vh; max-height:640px; height:60vh; background:var(--ink)" aria-label="Pagina non trovata">
+  <div class="hero-content" style="justify-content:center; align-items:center; text-align:center">
+    <div class="eyebrow">Errore 404</div>
+    <div class="error-code" aria-hidden="true">404</div>
+    <h1 style="text-align:center; max-width:18ch">Questa pagina non esiste</h1>
+    <p class="lead" style="text-align:center">Forse era un piatto fuori menu. Torna alla home o scopri cosa serviamo oggi.</p>
+    <div class="hero-cta" style="justify-content:center; margin-top:8px">
+      <a href="/" class="btn">Torna alla home <span class="arrow" aria-hidden="true">→</span></a>
+      <a href="/menu.html" class="btn ghost">Scopri il Menu</a>
+    </div>
+  </div>
+</section>
+</BaseLayout>

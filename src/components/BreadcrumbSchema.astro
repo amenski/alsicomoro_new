@@ -1,0 +1,29 @@
+---
+// JSON-LD BreadcrumbList. The trail is a prop because it differs per page.
+import type { Lang } from '../i18n/ui';
+
+export interface Crumb {
+  name: string;
+  item: string;
+}
+
+interface Props {
+  crumbs: Crumb[];
+  lang: Lang;
+}
+
+const { crumbs } = Astro.props;
+
+const data = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((crumb, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: crumb.name,
+    item: crumb.item,
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

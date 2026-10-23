@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"},{"name":"Chi Siamo","item":"https://alsicomoro.com/chi-siamo.html"}];
+
+---
+
+<BaseLayout
+  lang="it"
+  page="chi-siamo"
+  title={"Chi Siamo | Al Sicomoro – La nostra storia eritrea a Milano"}
+  description={"Scopri la storia di Al Sicomoro, ristorante eritreo a Milano Porta Venezia. Da Asmara a Milano, portiamo autenticità, comunità e ospitalità habesha."}
+  ogDescription={"Scopri la storia di Al Sicomoro, ristorante eritreo a Milano Porta Venezia. Da Asmara a Milano: autenticità, comunità e ospitalità habesha."}
+  twitterTitle={"Chi Siamo | Al Sicomoro"}
+  twitterDescription={"Da Asmara a Milano: autenticità, comunità e ospitalità habesha."}
+  ogImage="/images/tree.jpg"
+  ogImageAlt={"Al Sicomoro restaurant interior with sycamore tree decoration"}
+  breadcrumb={breadcrumb}
+>
+
+
+<!-- ===================== ABOUT HERO ===================== -->
+<section class="hero" style="min-height:50vh; max-height:560px; height:50vh" aria-label="Chi Siamo">
+  <div class="slides" id="slides">
+    <div class="slide active">
+      <img class="slide-img" src="/images/tree.jpg" alt="Albero di sicomoro" loading="eager" width="1920" height="1080">
+    </div>
+  </div>
+  <div class="hero-content" style="justify-content:center; padding-bottom:clamp(40px,6vh,80px); align-items:center; text-align:center">
+    <div class="eyebrow">La nostra storia</div>
+    <h1 style="text-align:center">Chi Siamo</h1>
+    <p class="lead" style="text-align:center; max-width:40ch">Da Asmara a Milano, portiamo l'autenticità della cucina eritrea e l'ospitalità habesha nel cuore di Porta Venezia.</p>
+  </div>
+</section>
+
+<!-- ===================== STORY ===================== -->
+<section class="section" style="background:var(--cream-soft)">
+  <div class="story-grid" style="grid-template-columns:1fr; max-width:720px; margin:0 auto">
+    <div class="story-text reveal">
+      <div class="eyebrow reveal-child">Chi siamo</div>
+      <h2 class="reveal-child">Da Asmara a Milano, con il cuore pieno.</h2>
+      <p class="reveal-child">Al Sicomoro nasce da un sogno semplice: portare a Milano l'autenticità della cucina eritrea — i sapori dell'infanzia, la generosità della tavola condivisa.</p>
+      <p class="reveal-child">Il nome viene dal sicomoro, il fico sacro dell'Eritrea. Un albero sotto cui le comunità si ritrovano da secoli. Volevamo creare quel luogo qui — a Porta Venezia — dove chiunque possa sedersi, mangiare con le mani, e sentirsi a casa.</p>
+      <blockquote class="story-quote reveal-child">
+        "Il sicomoro è più di un albero. È il luogo dove le famiglie si riuniscono, dove si condivide il cibo, dove si tramandano le storie. Abbiamo portato quell'ombra a Milano."
+        <cite>— Famiglia Al Sicomoro</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VALUES ===================== -->
+<section class="exp" id="valori">
+  <div class="exp-inner">
+    <div class="eyebrow reveal" style="text-align:center">I nostri valori</div>
+    <h2 class="reveal" style="text-align:center; max-width:none">Tre pilastri, una <em>missione</em>.</h2>
+    <div class="exp-grid reveal">
+      <div class="exp-item reveal-child" style="text-align:center">
+        <span class="num">— Comunità —</span>
+        <h3>Mangiare insieme</h3>
+        <p>Mangiare insieme è un atto d'amore. Ogni tavolo da noi è una piccola comunità dove il cibo si condivide con le mani e con il cuore.</p>
+      </div>
+      <div class="exp-item reveal-child" style="text-align:center">
+        <span class="num">— Autenticità —</span>
+        <h3>Nessuna scorciatoia</h3>
+        <p>L'injera è preparata fresca ogni giorno, le spezie arrivano direttamente dal Corno d'Africa. Ricette tramandate, ingredienti veri.</p>
+      </div>
+      <div class="exp-item reveal-child" style="text-align:center">
+        <span class="num">— Accoglienza —</span>
+        <h3>Ospitalità habesha</h3>
+        <p>L'ospitalità habesha non si insegna — si eredita. Qui ogni ospite è di famiglia, ogni pasto è un abbraccio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="reviews cta-section reveal">
+  <div class="reviews-head">
+    <h2 class="reveal-child" style="max-width:none">Pronto a provare i nostri piatti?</h2>
+    <p style="color:var(--charcoal-soft); margin-bottom:32px">Esplora il nostro menu autentico o prenota direttamente il tuo tavolo.</p>
+    <div class="hero-cta" style="justify-content:center">
+      <a href="/menu.html" class="btn">Scopri il Menu <span class="arrow" aria-hidden="true">→</span></a>
+      <a href="/contatti.html" class="btn ghost">Prenota un Tavolo</a>
+    </div>
+  </div>
+</section>
+</BaseLayout>

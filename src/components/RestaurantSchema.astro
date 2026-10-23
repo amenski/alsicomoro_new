@@ -1,0 +1,54 @@
+---
+// JSON-LD Restaurant block. Ported from index.html; only `description` and
+// `hasMenu` differ per language, everything else comes from site.ts.
+import { site } from '../data/site';
+import { paths, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const description =
+  lang === 'it'
+    ? "Ristorante eritreo e cucina del Corno d'Africa a Milano Porta Venezia. Piatti tradizionali eritrei, etiopi, zighinì, shiro, kitfo e injera fatta in casa."
+    : 'Eritrean restaurant and Horn of Africa cuisine in Milan Porta Venezia. Traditional Eritrean and Ethiopian dishes: zighini, shiro, kitfo and homemade injera.';
+
+const data = {
+  '@context': 'https://schema.org',
+  '@type': ['Restaurant', 'LocalBusiness'],
+  name: site.name,
+  legalName: site.legalName,
+  description,
+  image: `${site.url}/images/logo.png`,
+  url: site.url,
+  sameAs: [site.social.instagram, site.social.tiktok, site.social.thefork],
+  telephone: site.phone.schema,
+  priceRange: site.priceRange,
+  servesCuisine: [...site.servesCuisine],
+  hasMenu: `${site.url}${paths.menu[lang]}`,
+  acceptsReservations: true,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    addressLocality: site.address.locality,
+    addressRegion: site.address.region,
+    postalCode: site.address.postalCode,
+    addressCountry: site.address.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.geo.latitude,
+    longitude: site.geo.longitude,
+  },
+  openingHoursSpecification: site.openingHours.map((h) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: [...site.openDays],
+    opens: h.opens,
+    closes: h.closes,
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

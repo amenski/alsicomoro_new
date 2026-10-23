@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com/en/"},{"name":"About","item":"https://alsicomoro.com/en/chi-siamo.html"}];
+
+---
+
+<BaseLayout
+  lang="en"
+  page="chi-siamo"
+  title={"About | Al Sicomoro – Our Eritrean story in Milan"}
+  description={"Discover the story of Al Sicomoro, Eritrean restaurant in Milan Porta Venezia. From Asmara to Milan: authenticity, community and habesha hospitality."}
+  ogDescription={"Discover the story of Al Sicomoro, Eritrean restaurant in Milan Porta Venezia. From Asmara to Milan: authenticity, community and habesha hospitality."}
+  twitterTitle={"About | Al Sicomoro"}
+  twitterDescription={"From Asmara to Milan: authenticity, community and habesha hospitality."}
+  ogImage="/images/tree.jpg"
+  ogImageAlt={"Al Sicomoro restaurant interior with sycamore tree decoration"}
+  breadcrumb={breadcrumb}
+>
+
+
+<!-- ABOUT HERO -->
+<section class="hero" style="min-height:50vh; max-height:560px; height:50vh" aria-label="About Us">
+  <div class="slides" id="slides">
+    <div class="slide active">
+      <img class="slide-img" src="/images/tree.jpg" alt="Sycamore tree" loading="eager" width="1920" height="1080">
+    </div>
+  </div>
+  <div class="hero-content" style="justify-content:center; padding-bottom:clamp(40px,6vh,80px); align-items:center; text-align:center">
+    <div class="eyebrow">Our story</div>
+    <h1 style="text-align:center">About Us</h1>
+    <p class="lead" style="text-align:center; max-width:40ch">From Asmara to Milan, we bring the authenticity of Eritrean cuisine and habesha hospitality to the heart of Porta Venezia.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section" style="background:var(--cream-soft)">
+  <div class="story-grid" style="grid-template-columns:1fr; max-width:720px; margin:0 auto">
+    <div class="story-text reveal">
+      <div class="eyebrow reveal-child">About us</div>
+      <h2 class="reveal-child">From Asmara to Milan, with a full heart.</h2>
+      <p class="reveal-child">Al Sicomoro was born from a simple dream: to bring the authenticity of Eritrean cuisine to Milan — the flavours of childhood, the generosity of a shared table.</p>
+      <p class="reveal-child">The name comes from the sicomoro, the sacred fig of Eritrea. A tree under which communities have gathered for centuries. We wanted to create that place here — in Porta Venezia — where anyone can sit down, eat with their hands, and feel at home.</p>
+      <blockquote class="story-quote reveal-child">
+        "The sycamore is more than a tree. It is where families gather, where food is shared, where stories are passed down. We brought that shade to Milan."
+        <cite>— Al Sicomoro family</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="exp" id="valori">
+  <div class="exp-inner">
+    <div class="eyebrow reveal" style="text-align:center">Our values</div>
+    <h2 class="reveal" style="text-align:center; max-width:none">Three pillars, one <em>mission</em>.</h2>
+    <div class="exp-grid reveal">
+      <div class="exp-item reveal-child" style="text-align:center">
+        <span class="num">— Community —</span>
+        <h3>Eating together</h3>
+        <p>Eating together is an act of love. Every table here is a small community where food is shared with hands and with the heart.</p>
+      </div>
+      <div class="exp-item reveal-child" style="text-align:center">
+        <span class="num">— Authenticity —</span>
+        <h3>No shortcuts</h3>
+        <p>Injera is made fresh every day, spices sourced directly from the Horn of Africa. Passed-down recipes, real ingredients.</p>
+      </div>
+      <div class="exp-item reveal-child" style="text-align:center">
+        <span class="num">— Hospitality —</span>
+        <h3>Habesha hospitality</h3>
+        <p>Habesha hospitality cannot be taught — it is inherited. Here, every guest is family, every meal is an embrace.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="reviews cta-section reveal">
+  <div class="reviews-head">
+    <h2 class="reveal-child" style="max-width:none">Ready to try our dishes?</h2>
+    <p style="color:var(--charcoal-soft); margin-bottom:32px">Explore our authentic menu or reserve your table directly.</p>
+    <div class="hero-cta" style="justify-content:center">
+      <a href="/en/menu.html" class="btn">Explore Menu <span class="arrow" aria-hidden="true">→</span></a>
+      <a href="/en/contatti.html" class="btn ghost">Reserve a Table</a>
+    </div>
+  </div>
+</section>
+</BaseLayout>

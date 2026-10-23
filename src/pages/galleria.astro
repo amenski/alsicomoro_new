@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"},{"name":"Galleria","item":"https://alsicomoro.com/galleria.html"}];
+
+---
+
+<BaseLayout
+  lang="it"
+  page="galleria"
+  title={"Galleria | Al Sicomoro Milano"}
+  description={"Galleria fotografica del ristorante Al Sicomoro a Milano Porta Venezia. Scopri l'atmosfera, i piatti e la tradizione eritrea."}
+  ogDescription={"Galleria fotografica del ristorante Al Sicomoro a Milano Porta Venezia. Atmosfera, piatti e tradizione eritrea."}
+  twitterTitle={"Galleria | Al Sicomoro"}
+  twitterDescription={"Atmosfera, piatti e tradizione eritrea."}
+  ogImage="/images/zigni-overhead.jpg"
+  ogImageAlt={"Traditional Eritrean zighini platter served on injera at Al Sicomoro"}
+  noindex
+  alternates={[{"hreflang":"it","href":"https://alsicomoro.com/galleria.html"},{"hreflang":"x-default","href":"https://alsicomoro.com/galleria.html"}]}
+  breadcrumb={breadcrumb}
+>
+
+
+<!-- ===================== GALLERY HERO ===================== -->
+<section class="hero" style="min-height:40vh; max-height:460px; height:40vh; background:var(--ink)" aria-label="Galleria">
+  <div class="hero-content" style="justify-content:center; padding-bottom:10px; align-items:center; text-align:center">
+    <div class="eyebrow">Galleria</div>
+    <h1 style="text-align:center; max-width:16ch">Galleria Al Sicomoro</h1>
+    <p class="lead" style="text-align:center">Immagini che raccontano la nostra storia, i nostri piatti e l'atmosfera del ristorante.</p>
+  </div>
+</section>
+
+<!-- ===================== GALLERY CONTENT ===================== -->
+<section class="reviews reveal">
+  <div class="reviews-head">
+    <h2 class="reveal-child">La nostra galleria</h2>
+    <p style="color:var(--charcoal-soft); max-width:48ch; margin:0 auto">Stiamo preparando la nostra galleria fotografica. Nel frattempo, esplora il menu o vieni a trovarci.</p>
+    <div class="hero-cta" style="justify-content:center; margin-top:32px">
+      <a href="/menu.html" class="btn">Scopri il Menu <span class="arrow" aria-hidden="true">→</span></a>
+      <a href="/contatti.html" class="btn ghost">Prenota un Tavolo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY GRID ===================== -->
+<section class="section" style="padding-top:0">
+  <div class="menu-grid" style="grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))">
+    <div class="dish reveal" style="padding:0; overflow:hidden; border-radius:16px">
+      <div style="aspect-ratio:1; overflow:hidden; background:var(--cream); display:flex; align-items:center; justify-content:center; color:var(--charcoal-soft); font-family:var(--serif); font-style:italic; padding:20px; text-align:center">
+        <span>Prossimamente — foto dei nostri piatti</span>
+      </div>
+    </div>
+    <div class="dish reveal" style="padding:0; overflow:hidden; border-radius:16px">
+      <div style="aspect-ratio:1; overflow:hidden; background:var(--cream); display:flex; align-items:center; justify-content:center; color:var(--charcoal-soft); font-family:var(--serif); font-style:italic; padding:20px; text-align:center">
+        <span>Prossimamente — atmosfera del ristorante</span>
+      </div>
+    </div>
+    <div class="dish reveal" style="padding:0; overflow:hidden; border-radius:16px">
+      <div style="aspect-ratio:1; overflow:hidden; background:var(--cream); display:flex; align-items:center; justify-content:center; color:var(--charcoal-soft); font-family:var(--serif); font-style:italic; padding:20px; text-align:center">
+        <span>Prossimamente — i nostri ospiti</span>
+      </div>
+    </div>
+  </div>
+</section>
+</BaseLayout>

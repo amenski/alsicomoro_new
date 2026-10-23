@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alsicomoro.com/sitemap-index.xml
