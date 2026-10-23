@@ -1,6 +1,7 @@
 ---
 // Renders the whole <head>, then header / slot / footer plus the shared scripts.
 // The head reproduces index.html's order with root-absolute asset paths.
+import { Font } from 'astro:assets';
 import { site } from '../data/site';
 import { paths, ui, type Lang, type PageKey } from '../i18n/ui';
 import Header from '../components/Header.astro';
@@ -85,8 +86,6 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${site.url}${ogImage}
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="description" content={description} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" href="/images/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
@@ -117,10 +116,8 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${site.url}${ogImage}
     <meta name="twitter:description" content={twitterDescription ?? ogDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <Font cssVariable="--serif" preload={[{ weight: 400, style: 'normal' }]} />
+    <Font cssVariable="--sans" preload={[{ weight: 400, style: 'normal' }]} />
 
     {schema && <RestaurantSchema lang={lang} />}
     {schema && breadcrumb && <BreadcrumbSchema crumbs={breadcrumb} lang={lang} />}

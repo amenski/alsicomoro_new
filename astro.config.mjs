@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 // `build.format: 'preserve'` is required: `'file'` would emit `/en.html` for
@@ -12,7 +12,52 @@ import sitemap from '@astrojs/sitemap';
 // behind it and would 404.
 export default defineConfig({
   site: 'https://alsicomoro.com',
-  build: { format: 'preserve' },
+  // `inlineStylesheets: 'always'` inlines the CSS into each page so it is not a
+  // render-blocking request (Lighthouse flagged /_astro/BaseLayout.*.css).
+  build: { format: 'preserve', inlineStylesheets: 'always' },
+  // Self-hosted fonts. They used to come from fonts.googleapis.com, a
+  // render-blocking round trip of about 1.2 s. The files are static (one per
+  // weight/style) because a variable woff2 would make the local provider infer
+  // a single weight for the whole axis. `<Font>` in BaseLayout emits the
+  // @font-face rules and preloads only the two faces the first screen uses.
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: 'DM Serif Display',
+      cssVariable: '--serif',
+      fallbacks: ['Times New Roman', 'serif'],
+      options: {
+        variants: [
+          {
+            src: ['./src/assets/fonts/dm-serif-display-400.woff2'],
+            weight: 400,
+            style: 'normal',
+            display: 'swap',
+          },
+          {
+            src: ['./src/assets/fonts/dm-serif-display-400-italic.woff2'],
+            weight: 400,
+            style: 'italic',
+            display: 'swap',
+          },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: 'Manrope',
+      cssVariable: '--sans',
+      fallbacks: ['system-ui', 'sans-serif'],
+      options: {
+        variants: [300, 400, 500, 600, 700].map((weight) => ({
+          src: [`./src/assets/fonts/manrope-${weight}.woff2`],
+          weight,
+          style: 'normal',
+          display: 'swap',
+        })),
+      },
+    },
+  ],
   // Compression drops newline-only whitespace between inline elements, which
   // renders as a visible space on the original pages ("IT / EN", map card link).
   compressHTML: false,

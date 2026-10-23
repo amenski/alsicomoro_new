@@ -3,7 +3,9 @@
 // ui[lang] and links from paths. Two fixes vs the old hand-copied markup: Home
 // and the logo point at the current language's home (EN used to point at IT),
 // and aria-current is set at build time instead of by components.js.
+import { Image } from 'astro:assets';
 import { site } from '../data/site';
+import logoImg from '../assets/images/logo.png';
 import { paths, alternatePath, ui, type Lang, type PageKey } from '../i18n/ui';
 import { getPosts } from '../lib/blog';
 
@@ -50,7 +52,7 @@ const navItems: { key: PageKey; path: string; label: string }[] = [
 <!-- NAV -->
 <nav class="nav" id="nav" aria-label={t.navAriaLabel}>
   <a href={paths.index[lang]} class="brand" aria-label={t.brandAriaLabel}>
-    <img src={site.images.logo} alt="" class="brand-logo" width="44" height="44" />
+    <Image src={logoImg} alt="" class="brand-logo" width={88} height={88} densities={[1, 2]} loading="eager" />
     <div class="brand-text">
       <div class="brand-name">Al Sicomoro</div>
       <div class="brand-sub">Milano · Porta Venezia</div>

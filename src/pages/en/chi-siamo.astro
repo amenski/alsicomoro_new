@@ -1,5 +1,7 @@
 ---
+import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import heroTree from '../../assets/images/tree.jpg';
 
 const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com/en/"},{"name":"About","item":"https://alsicomoro.com/en/chi-siamo.html"}];
 
@@ -23,7 +25,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com/en/"},{"name":
 <section class="hero" style="min-height:50vh; max-height:560px; height:50vh" aria-label="About Us">
   <div class="slides" id="slides">
     <div class="slide active">
-      <img class="slide-img" src="/images/tree.jpg" alt="Sycamore tree" loading="eager" width="1920" height="1080">
+      <Picture class="slide-img" src={heroTree} alt="Sycamore tree" formats={['avif', 'webp']} widths={[480, 768, 1080]} sizes="100vw" loading="eager" fetchpriority="high" />
     </div>
   </div>
   <div class="hero-content" style="justify-content:center; padding-bottom:clamp(40px,6vh,80px); align-items:center; text-align:center">

@@ -40,12 +40,8 @@ export const site = {
     thefork: 'https://www.thefork.it/ristorante/ristorante-al-sicomoro-r860688',
   },
 
-  images: {
-    logo: '/images/logo.png',
-    background: '/images/background.jpg',
-    tree: '/images/tree.jpg',
-    zigni: '/images/zigni-overhead.jpg',
-  },
+  // /images/logo.png is used by absolute URL (schema.org, social cards), so it
+  // stays in public/. The header logo is imported from src/assets instead.
 
   // Mirrors the openingHoursSpecification in the original JSON-LD.
   openingHours: [

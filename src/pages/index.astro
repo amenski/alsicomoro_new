@@ -1,5 +1,16 @@
 ---
+import { Image, Picture } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import heroZigni from '../assets/images/background.jpg';
+import slideZigni from '../assets/images/zigni-overhead.jpg';
+import slideTree from '../assets/images/tree.jpg';
+import cardZigni from '../assets/images/zigni-overhead.jpg';
+import cardKitfo from '../assets/images/kitfo.jpg';
+import cardSambusa from '../assets/images/sambusa-di-carne.jpg';
+import cardVegan from '../assets/images/vegan.jpg';
+import cardGored from '../assets/images/gored_gored.jpeg';
+import cardFirfir from '../assets/images/firfir.jpg';
+import storyTree from '../assets/images/tree.jpg';
 
 const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 
@@ -25,15 +36,15 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 <section class="hero" aria-label="Galleria principale">
   <div class="slides" id="slides">
     <div class="slide active" data-caption="Zighinì misto · piatto della casa">
-      <img class="slide-img" src="/images/background.jpg" alt="Piatto di zighinì servito sull'injera al Sicomoro" loading="eager" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #8A3415, #B5471E)'; this.removeAttribute('src');">
+      <Picture class="slide-img" src={heroZigni} alt="Piatto di zighinì servito sull'injera al Sicomoro" formats={['avif', 'webp']} widths={[480, 768, 1080, 1296]} sizes="100vw" loading="eager" fetchpriority="high" />
       <div class="slide-caption">01 — Zighinì misto · piatto della casa</div>
     </div>
     <div class="slide" data-caption="Mani che condividono · si mangia insieme">
-      <img class="slide-img" src="/images/zigni-overhead.jpg" alt="Tavola condivisa con piatti tradizionali eritrei" loading="lazy" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #6B4A2A, #3D2615)'; this.removeAttribute('src');">
+      <Picture class="slide-img" src={slideZigni} alt="Tavola condivisa con piatti tradizionali eritrei" formats={['avif', 'webp']} widths={[480, 768, 1080, 1296]} sizes="100vw" loading="lazy" />
       <div class="slide-caption">02 — Mani che condividono</div>
     </div>
     <div class="slide" data-caption="Atmosfera · sala del ristorante">
-      <img class="slide-img" src="/images/tree.jpg" alt="Interno del ristorante Al Sicomoro" loading="lazy" width="1920" height="1080" onerror="this.style.background='linear-gradient(135deg, #2A3018, #1F1A14)'; this.removeAttribute('src');">
+      <Picture class="slide-img" src={slideTree} alt="Interno del ristorante Al Sicomoro" formats={['avif', 'webp']} widths={[480, 768, 1080, 1296]} sizes="100vw" loading="lazy" />
       <div class="slide-caption">03 — Sala del ristorante</div>
     </div>
   </div>
@@ -78,7 +89,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 <section class="section" id="storia">
   <div class="story-grid">
     <div class="story-image reveal">
-      <img src="/images/tree.jpg" alt="La cucina del ristorante Al Sicomoro" loading="lazy" width="1000" height="1250" onerror="this.style.opacity='0'">
+      <Image src={storyTree} alt="La cucina del ristorante Al Sicomoro" widths={[400, 800]} sizes="(min-width: 900px) 42vw, 100vw" loading="lazy" />
       <span class="badge">La nostra storia</span>
       <div class="label">"Tradizione, sapore, comunità."</div>
     </div>
@@ -115,7 +126,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
     <div class="menu-grid" id="menuGrid">
       <article class="dish reveal" data-category="carne">
         <div class="dish-img">
-          <img src="/images/zigni-overhead.jpg" alt="Zighinì di carne" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+          <Image src={cardZigni} alt="Zighinì di carne" widths={[92, 184]} sizes="92px" loading="lazy" />
         </div>
         <div class="dish-body">
           <div class="dish-row">
@@ -129,7 +140,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 
       <article class="dish reveal" data-category="carne">
         <div class="dish-img">
-          <img src="/images/kitfo.jpg" alt="Kitfo" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+          <Image src={cardKitfo} alt="Kitfo" widths={[92, 184]} sizes="92px" loading="lazy" />
         </div>
         <div class="dish-body">
           <div class="dish-row">
@@ -145,7 +156,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 
       <article class="dish reveal" data-category="antipasti">
         <div class="dish-img">
-          <img src="/images/sambusa-di-carne.jpg" alt="Sambusa di carne" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+          <Image src={cardSambusa} alt="Sambusa di carne" widths={[92, 184]} sizes="92px" loading="lazy" />
         </div>
         <div class="dish-body">
           <div class="dish-row">
@@ -160,7 +171,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 
       <article class="dish reveal" data-category="vegano vegetariano">
         <div class="dish-img">
-          <img src="/images/vegan.jpg" alt="Zighinì vegetariano" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+          <Image src={cardVegan} alt="Zighinì vegetariano" widths={[92, 184]} sizes="92px" loading="lazy" />
         </div>
         <div class="dish-body">
           <div class="dish-row">
@@ -175,7 +186,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 
       <article class="dish reveal" data-category="carne">
         <div class="dish-img">
-          <img src="/images/gored_gored.jpeg" alt="Gored Gored" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+          <Image src={cardGored} alt="Gored Gored" widths={[92, 184]} sizes="92px" loading="lazy" />
         </div>
         <div class="dish-body">
           <div class="dish-row">
@@ -189,7 +200,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 
       <article class="dish reveal" data-category="vegano vegetariano">
         <div class="dish-img">
-          <img src="/images/firfir.jpg" alt="Fir Fir vegetariano" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+          <Image src={cardFirfir} alt="Fir Fir vegetariano" widths={[92, 184]} sizes="92px" loading="lazy" />
         </div>
         <div class="dish-body">
           <div class="dish-row">
@@ -204,7 +215,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 
       <article class="dish reveal" data-category="carne">
         <div class="dish-img">
-          <img src="/images/zigni-overhead.jpg" alt="Spriss rosso e bianco" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+          <Image src={cardZigni} alt="Spriss rosso e bianco" widths={[92, 184]} sizes="92px" loading="lazy" />
         </div>
         <div class="dish-body">
           <div class="dish-row">
@@ -218,7 +229,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 
       <article class="dish reveal" data-category="antipasti">
         <div class="dish-img">
-          <img src="/images/zigni-overhead.jpg" alt="Categna" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+          <Image src={cardZigni} alt="Categna" widths={[92, 184]} sizes="92px" loading="lazy" />
         </div>
         <div class="dish-body">
           <div class="dish-row">
@@ -232,7 +243,7 @@ const breadcrumb = [{"name":"Home","item":"https://alsicomoro.com"}];
 
       <article class="dish reveal" data-category="antipasti">
         <div class="dish-img">
-          <img src="/images/sambusa-di-carne.jpg" alt="Sambusa di verdura" loading="lazy" width="800" height="800" onerror="this.style.display='none'">
+          <Image src={cardSambusa} alt="Sambusa di verdura" widths={[92, 184]} sizes="92px" loading="lazy" />
         </div>
         <div class="dish-body">
           <div class="dish-row">
