@@ -33,7 +33,6 @@ export default defineConfig({
         return !['/galleria', '/404', '/en/404'].includes(path);
       },
       customPages: ['https://alsicomoro.com/Menu_9.pdf'],
-      xslURL: '/sitemap.xsl',
       serialize(item) {
         item.url = withHtml(item.url);
         if (item.links) {

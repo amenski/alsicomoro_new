@@ -1,0 +1,82 @@
+---
+// The post list for one language. Built only when that language has posts.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import { paths, ui, type Lang } from '../i18n/ui';
+import { formatDate, getPosts, postPath, postSlug } from '../lib/blog';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+const other: Lang = lang === 'it' ? 'en' : 'it';
+
+const posts = await getPosts(lang);
+const otherHasBlog = (await getPosts(other)).length > 0;
+
+const self = `${site.url}${paths.blog[lang]}`;
+// Only claim a twin list when it is actually built.
+const alternates = otherHasBlog
+  ? [
+      { hreflang: 'it', href: `${site.url}${paths.blog.it}` },
+      { hreflang: 'en', href: `${site.url}${paths.blog.en}` },
+      { hreflang: 'x-default', href: `${site.url}${paths.blog.it}` },
+    ]
+  : [{ hreflang: lang, href: self }];
+
+const breadcrumb = [
+  { name: 'Home', item: `${site.url}${paths.index[lang] === '/' ? '' : paths.index[lang]}` },
+  { name: 'Blog', item: self },
+];
+---
+
+<BaseLayout
+  lang={lang}
+  page="blog"
+  title={t.blog.title}
+  description={t.blog.description}
+  ogImage="/images/background.jpg"
+  ogImageAlt={t.blog.heading}
+  alternates={alternates}
+  breadcrumb={breadcrumb}
+  toggleHref={otherHasBlog ? paths.blog[other] : paths.index[other]}
+>
+  <section class="section blog">
+    <header class="blog-head">
+      <div class="eyebrow">{t.blog.eyebrow}</div>
+      <h1>{t.blog.heading}</h1>
+      <p class="lead">{t.blog.lead}</p>
+    </header>
+
+    <ul class="post-list">
+      {
+        posts.map((post) => {
+          const href = postPath(lang, postSlug(post));
+          return (
+            <li class="post-card">
+              {post.data.image && (
+                <a href={href} class="post-card-img" tabindex="-1" aria-hidden="true">
+                  <img src={post.data.image} alt="" loading="lazy" />
+                </a>
+              )}
+              <div class="post-card-body">
+                <time datetime={post.data.date.toISOString()}>
+                  {formatDate(post.data.date, lang)}
+                </time>
+                <h2>
+                  <a href={href}>{post.data.title}</a>
+                </h2>
+                <p>{post.data.description}</p>
+                <a href={href} class="post-card-more">
+                  {t.blog.readMore} <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+// A rest route instead of index.astro so the list page is only built once a
+// post exists: an empty blog ships no page, no nav link and no sitemap entry.
+import BlogIndex from '../../components/BlogIndex.astro';
+import { getPosts } from '../../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = await getPosts('it');
+  return posts.length ? [{ params: { index: undefined } }] : [];
+}
+---
+
+<BlogIndex lang="it" />

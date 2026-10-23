@@ -1,0 +1,103 @@
+---
+// One blog post: article markup, BlogPosting JSON-LD, hreflang to its twin.
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import { paths, ui, type Lang } from '../i18n/ui';
+import { formatDate, getPosts, postLang, postPath, postSlug, type Post } from '../lib/blog';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { title, description, date, updatedDate, image, imageAlt, translation } = post.data;
+const lang = postLang(post);
+const other: Lang = lang === 'it' ? 'en' : 'it';
+const t = ui[lang];
+
+const path = postPath(lang, postSlug(post));
+const url = `${site.url}${path}`;
+
+// The twin counts only if it is published; a dangling `translation` is ignored.
+const twin = translation
+  ? (await getPosts(other)).find((p) => postSlug(p) === translation)
+  : undefined;
+const twinPath = twin && postPath(other, translation!);
+
+const alternates = twinPath
+  ? [
+      { hreflang: lang, href: url },
+      { hreflang: other, href: `${site.url}${twinPath}` },
+      { hreflang: 'x-default', href: lang === 'it' ? url : `${site.url}${twinPath}` },
+    ]
+  : [{ hreflang: lang, href: url }];
+
+const ogImage = image ?? '/images/background.jpg';
+
+const breadcrumb = [
+  { name: 'Home', item: `${site.url}${paths.index[lang] === '/' ? '' : paths.index[lang]}` },
+  { name: 'Blog', item: `${site.url}${paths.blog[lang]}` },
+  { name: title, item: url },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  image: `${site.url}${ogImage}`,
+  datePublished: date.toISOString(),
+  dateModified: (updatedDate ?? date).toISOString(),
+  inLanguage: lang === 'it' ? 'it-IT' : 'en-US',
+  mainEntityOfPage: url,
+  author: { '@type': 'Organization', name: site.name, url: site.url },
+  publisher: {
+    '@type': 'Organization',
+    name: site.name,
+    logo: { '@type': 'ImageObject', url: `${site.url}/images/icon-512.png` },
+  },
+};
+
+const { Content } = await render(post);
+---
+
+<BaseLayout
+  lang={lang}
+  page="blog"
+  path={path}
+  title={`${title} | Al Sicomoro`}
+  description={description}
+  ogImage={ogImage}
+  ogImageAlt={imageAlt ?? title}
+  ogType="article"
+  alternates={alternates}
+  breadcrumb={breadcrumb}
+  toggleHref={twinPath ?? paths.index[other]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <article class="section post">
+    <header class="post-head">
+      <a href={paths.blog[lang]} class="eyebrow post-back">← {t.blog.back}</a>
+      <h1>{title}</h1>
+      <p class="lead">{description}</p>
+      <time datetime={date.toISOString()}>{formatDate(date, lang)}</time>
+    </header>
+
+    {image && <img class="post-hero" src={image} alt={imageAlt ?? ''} />}
+
+    <div class="post-body">
+      <Content />
+    </div>
+
+    <footer class="post-cta">
+      <h2>{t.blog.ctaHeading}</h2>
+      <p>{t.blog.ctaText}</p>
+      <div class="post-cta-actions">
+        <a href={paths.contatti[lang]} class="btn">{t.navCta} <span class="arrow" aria-hidden="true">→</span></a>
+        <a href={paths.menu[lang]} class="btn ghost">{t.nav.menu}</a>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>

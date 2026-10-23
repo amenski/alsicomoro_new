@@ -30,6 +30,10 @@ interface Props {
   alternates?: Alternate[];
   breadcrumb?: Crumb[];
   schema?: boolean;
+  /** Canonical path when it is not the fixed one in `paths` (blog posts). */
+  path?: string;
+  /** Language toggle target when it is not the fixed one in `toggleTargets`. */
+  toggleHref?: string;
 }
 
 const {
@@ -47,11 +51,13 @@ const {
   noindex = false,
   breadcrumb,
   schema = true,
+  path,
+  toggleHref,
 } = Astro.props;
 
 const t = ui[lang];
 const other: Lang = lang === 'it' ? 'en' : 'it';
-const url = `${site.url}${paths[page][lang]}`;
+const url = `${site.url}${path ?? paths[page][lang]}`;
 
 // Default: both languages plus x-default pointing at the IT page.
 const defaultAlternates: Alternate[] = [
@@ -121,7 +127,7 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${site.url}${ogImage}
   </head>
   <body>
     <div id="site-header" data-page={page}>
-      <Header lang={lang} page={page} />
+      <Header lang={lang} page={page} toggleHref={toggleHref} />
     </div>
 
     <slot />

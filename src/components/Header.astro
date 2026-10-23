@@ -5,22 +5,27 @@
 // and aria-current is set at build time instead of by components.js.
 import { site } from '../data/site';
 import { paths, alternatePath, ui, type Lang, type PageKey } from '../i18n/ui';
+import { getPosts } from '../lib/blog';
 
 interface Props {
   lang: Lang;
   page: PageKey;
+  toggleHref?: string;
 }
 
-const { lang, page } = Astro.props;
+const { lang, page, toggleHref } = Astro.props;
 const t = ui[lang];
 const other: Lang = lang === 'it' ? 'en' : 'it';
-const alternate = alternatePath(page, lang);
+const alternate = toggleHref ?? alternatePath(page, lang);
+// No Blog link until this language has a published post (the list page is not built before that).
+const hasBlog = (await getPosts(lang)).length > 0;
 
 const navItems: { key: PageKey; path: string; label: string }[] = [
   { key: 'index', path: paths.index[lang], label: t.nav.index },
   { key: 'chi-siamo', path: paths['chi-siamo'][lang], label: t.nav['chi-siamo'] },
   { key: 'menu', path: paths.menu[lang], label: t.nav.menu },
   { key: 'galleria', path: paths.galleria[lang], label: t.nav.galleria },
+  ...(hasBlog ? [{ key: 'blog' as const, path: paths.blog[lang], label: t.nav.blog }] : []),
   { key: 'contatti', path: paths.contatti[lang], label: t.nav.contatti },
 ];
 ---

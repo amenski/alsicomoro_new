@@ -10,6 +10,7 @@ export type PageKey =
   | 'chi-siamo'
   | 'contatti'
   | 'galleria'
+  | 'blog'
   | '404';
 
 // Canonical URL of each page in each language. Galleria has no EN page, so the
@@ -20,6 +21,7 @@ export const paths: Record<PageKey, Record<Lang, string>> = {
   'chi-siamo': { it: '/chi-siamo.html', en: '/en/chi-siamo.html' },
   contatti: { it: '/contatti.html', en: '/en/contatti.html' },
   galleria: { it: '/galleria.html', en: '/galleria.html' },
+  blog: { it: '/blog.html', en: '/en/blog.html' },
   '404': { it: '/404.html', en: '/en/404.html' },
 };
 
@@ -40,6 +42,7 @@ export const ui = {
       'chi-siamo': 'Chi Siamo',
       menu: 'Menu',
       galleria: 'Galleria',
+      blog: 'Blog',
       contatti: 'Contatti',
     },
     navCta: 'Prenota un tavolo',
@@ -71,6 +74,19 @@ export const ui = {
     mobileCtaAriaLabel: 'Azioni rapide',
     mobileCtaCall: 'Chiama',
     mobileCtaBook: 'Prenota',
+
+    blog: {
+      title: 'Blog | Al Sicomoro – Cucina eritrea a Milano',
+      description:
+        'Storie, ricette e tradizioni della cucina eritrea ed etiope dal ristorante Al Sicomoro, Milano Porta Venezia.',
+      eyebrow: 'Il blog',
+      heading: 'Storie dalla nostra tavola',
+      lead: 'Ricette, ingredienti e tradizioni del Corno d’Africa, raccontati da Porta Venezia.',
+      readMore: 'Leggi',
+      back: 'Tutti gli articoli',
+      ctaHeading: 'Vieni ad assaggiare',
+      ctaText: 'Martedì–domenica, a pranzo e a cena, in Via Panfilo Castaldi 19.',
+    },
   },
 
   en: {
@@ -89,6 +105,7 @@ export const ui = {
       'chi-siamo': 'About',
       menu: 'Menu',
       galleria: 'Gallery',
+      blog: 'Blog',
       contatti: 'Contact',
     },
     navCta: 'Book a table',
@@ -120,6 +137,19 @@ export const ui = {
     mobileCtaAriaLabel: 'Quick actions',
     mobileCtaCall: 'Call',
     mobileCtaBook: 'Book',
+
+    blog: {
+      title: 'Blog | Al Sicomoro – Eritrean food in Milan',
+      description:
+        'Stories, recipes and traditions of Eritrean and Ethiopian cooking from Al Sicomoro restaurant, Milan Porta Venezia.',
+      eyebrow: 'The blog',
+      heading: 'Stories from our table',
+      lead: 'Recipes, ingredients and traditions of the Horn of Africa, told from Porta Venezia.',
+      readMore: 'Read',
+      back: 'All posts',
+      ctaHeading: 'Come and taste it',
+      ctaText: 'Tuesday to Sunday, lunch and dinner, at Via Panfilo Castaldi 19.',
+    },
   },
 } as const;
 
@@ -132,6 +162,8 @@ export const toggleTargets: Record<PageKey, Record<Lang, string>> = {
   'chi-siamo': { it: '/en/chi-siamo.html', en: '/chi-siamo.html' },
   contatti: { it: '/en/contatti.html', en: '/contatti.html' },
   galleria: { it: '/en/', en: '/galleria.html' },
+  // Fallback only: blog pages pass their own target (the twin post or list, if any).
+  blog: { it: '/en/', en: '/' },
   '404': { it: '/en/404.html', en: '/404.html' },
 };
 
