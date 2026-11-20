@@ -1,7 +1,7 @@
 ---
 title: "Qual è il piatto tipico dell'Eritrea? La risposta è lo zighinì"
-description: "Il piatto tipico dell'Eritrea è lo zighinì (scritto anche zighini o zighinì): uno spezzatino di carne cotto in umido con il berberè, il mix di spezie piccanti…"
-date: 2026-11-18
+description: "Chi cerca un solo nome da ricordare, insomma, non deve andare lontano: è lo zighinì, nella sua versione di carne, di pesce o vegetariana."
+date: 2026-11-20
 slug: "qual-e-il-piatto-tipico-dell-eritrea"
 keyword: "qual è il piatto tipico dell'eritrea?"
 related:
