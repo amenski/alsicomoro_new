@@ -10,6 +10,7 @@ related:
   - "how-to-find-an-african-restaurant-near-you-and-check-it-before-you-book"
 content_hash: "3db80aa3aa76e843b64de79f7bbb727cb297bb50c63d910250b7d0f58a8f7a5b"
 ai_assisted: true
+translation: la-cucina-eritrea-e-come-quella-etiope
 ---
 
 Yes — but not identical. Eritrean and Ethiopian food come from the same culinary tradition: the same sour flatbread, the same spiced stews, the same habit of eating from one shared platter with the right hand. Diners and cooks who know both tend to describe them as close relatives rather than twins, and the differences are the kind you taste rather than read about.

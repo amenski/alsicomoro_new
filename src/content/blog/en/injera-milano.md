@@ -10,6 +10,7 @@ related:
   - "how-to-find-an-african-restaurant-near-you-and-check-it-before-you-book"
 content_hash: "03acd93e0246f9c195ced0476e5ed152234d49dbefe66bd5729b4c974a5c78a8"
 ai_assisted: true
+translation: injera-milano
 ---
 
 Searches for injera Milano usually lead to Porta Venezia, where a small dining room in the heart of the neighbourhood serves Eritrean and Ethiopian food the way it is meant to be eaten: from a shared platter, by hand, with the flatbread doing the work of plate and cutlery. Here is what injera is, how the meal works, and what to expect before you book.
